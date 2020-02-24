@@ -1,15 +1,13 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
 # Ciencia de Datos en R :rocket:
 
-Un curso para principiantes.
-
-Diseñado por Pablo Reyes Moctezuma e inspirado en [Data Science in a Box](https://datasciencebox.org/) y
+Un curso para principiantes diseñado por Pablo Reyes Moctezuma e inspirado en [Data Science in a Box](https://datasciencebox.org/) y
 [Stat 545](https://stat545.com) de la [Dra. Mine Çetinkaya-Rundel](https://www2.stat.duke.edu/~mc301/) y la 
 [Dra. Jenny Bryan](https://jennybryan.org), respectivamente.
+
+### Contacto
+
+ :e-mail: [preyes@colmex.mx](preyes@colmex.mx)
+ <a href="https://twitter.com/intent/tweet?screen_name=pablorm296&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-show-count="false">Tweet to @pablorm296</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## Descripción :pencil:
 
