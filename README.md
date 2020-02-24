@@ -1,13 +1,20 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Ciencia de Datos en R :rocket:
 
 Un curso para principiantes.
 
-Pablo Reyes Moctezuma
+Diseñado por Pablo Reyes Moctezuma e inspirado en [Data Science in a Box](https://datasciencebox.org/) y
+[Stat 545](https://stat545.com) de la [Dra. Mine Çetinkaya-Rundel](https://www2.stat.duke.edu/~mc301/) y la 
+[Dra. Jenny Bryan](https://jennybryan.org), respectivamente.
 
 ## Descripción :pencil:
 
-En unas cuantas palabras, este es un curso para personas que, independientemente de su experiencia en estadística o programando, 
-quieran aprender a procesar datos, extraer valor de ellos y comunicarlo, todo esto usando distintas herramientas computacionales 
+En unas cuantas palabras, este es un curso para estudiantes de ciencias sociales que, 
+independientemente de su experiencia en estadística o programando, quieran aprender a procesar datos, extraer valor de ellos y comunicarlo, todo esto usando distintas herramientas computacionales 
 —principalmente `R`, `RStudio` y `Git`—. 
 
 ## Objetivos del curso :dart:
