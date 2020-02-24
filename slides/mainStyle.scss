@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|Roboto&display=swap');
+
+//Colores del tema
+$color1: rgba(44, 54, 63, 1);
+$color2: rgba(231, 90, 124, 1);
+$color3: rgba(242, 245, 234, 1);
+$color4: rgba(214, 219, 210, 1);
+$color5: rgba(187, 199, 164, 1);
+
+//Fuentes del tema
+$fuente_texto: "Roboto",
+sans-serif;
+$fuente_encabezados: "Raleway",
+sans-serif;
+$tamaño_base: 14pt;
+$factor_encabezado: 6;
+
+body {
+    font-family: $fuente_texto;
+    font-size: $tamaño_base;
+    background-color: $color3;
+    color: $color1;
+}
+
+//COnfiguración de los headers
+@for $i from 1 through 6 {
+    h#{$i} {
+        font-size: $tamaño_base + $factor_encabezado * (6 - $i);
+        color: $color2;
+    }
+}
+
+.inverse {
+    font-family: $fuente_texto;
+    font-size: $tamaño_base;
+    background-color: $color1;
+    color: $color2;
+}
