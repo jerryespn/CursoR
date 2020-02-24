@@ -6,8 +6,10 @@ Un curso para principiantes diseñado por Pablo Reyes Moctezuma e inspirado en [
 
 ### Contacto
 
+Alumnos e interesados pueden contactarme aqui:
+
  :e-mail: [preyes@colmex.mx](preyes@colmex.mx)
- <a href="https://twitter.com/intent/tweet?screen_name=pablorm296&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-show-count="false">Tweet to @pablorm296</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+ :bird: [@pablorm296](https://github.com/pablorm296)
 
 ## Descripción :pencil:
 
