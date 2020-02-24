@@ -39,4 +39,4 @@ vignettes/*.pdf
 .Renviron
 
 #CSS Map Files
-.css.map
+*.css.map
