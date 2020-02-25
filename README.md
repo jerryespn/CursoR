@@ -6,9 +6,8 @@ Un curso para principiantes diseñado por Pablo Reyes Moctezuma e inspirado en [
 
 ### Contacto
 
-Alumnos e interesados pueden contactarme aqui:
-
  :e-mail: [preyes@colmex.mx](preyes@colmex.mx)
+ 
  :bird: [@pablorm296](https://github.com/pablorm296)
 
 ## Descripción :pencil:
@@ -85,3 +84,23 @@ El curso está estructurado bajo la misma lógica de un buen análisis de datos.
         + Modelos no lineales (e introducción al concepto de Modelos Lineales Generalizados).
         + Uso de simulación estadística en modelos lineales.
     - __Lección 17:__ Tips para presentar y comunicar resultados de modelos estadísticos usando `ggplot2` y `Rmarkdown`.
+
+## Material necesario para el curso
+
+Para el curso es necesario una computadora de escritorio o portatil con al menos 2 GB de espacio en disco libres (para instalar R, RStudio, Git y guardar los datos con los que trabajaremos). También es necesario crear una cuenta en GitHub y RStudio Cloud (ambas son completamente gratuitas; los materiales de trabajo y presentaciones se distribuirán en éstas). Más sobre esto antes de iniciar el curso.
+
+## Lecturas recomendadas
+
+Este no es un curso de metodología cuantitativa o estadística, por lo que no habrá asignación de lecturas. Sin embargo, hay que reconocer que muchos temas (especialmente en la unidad II) merecen un repaso teórico más profundo (sobre todo si el alumno piensa usarlo en una tesis/paper/entregable). Por esto, aqupi dejo una bibliografía a la cual siempre se puede acudir si es necesario ahondar en un tema.
+- Referencias rápidas de métodos cuantitativos:
+    - Alan Agresti y Barbara Finlay, _Statistical Methods for the Social Sciences_, Upper Saddle River, Pearson, 4ta ed., 2009.
+    - John P. Hoffmann, _Generalized Linear Models: An Applied Approach_, Londres, Allyn & Bacon, 2003.
+    - Bradley Efron y Trevor Hastie, _Computer Age Statistical Inference: Algorithms, Evidence and Data Science_, Cambridge, Cambridge University Press, 2017. Texto completo disponible en: https://web.stanford.edu/~hastie/CASI_files/PDF/casi.pdf
+- Uso de R:
+    - Garrett Grolemund y Hadley Wickham, _R for Data Science_, Sebastopol, O’Reilly, 2017. Texto completo disponible en: https://r4ds.had.co.nz/
+        - Hay una traducción al español aquí: https://es.r4ds.hadley.nz/
+        - La traducción es obra de la comunidad de usuarios de R en español.
+    - Nicholas J. Horton, et al., _A Student’s Guide to R_, Project Mosaic, 2015. Texto completo disponible en: https://cran.r-project.org/doc/contrib/Horton+Pruim+Kaplan_MOSAIC-StudentGuide.pdf
+    - Jenny Bryan, _Stat 545: Data wrangling, exploration, and analysis with R_. Texto completo disponible en: https://stat545.com/index.html
+
+
