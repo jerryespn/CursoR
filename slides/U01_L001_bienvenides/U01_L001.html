@@ -1,62 +1,224 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Bienvenides a la Ciencia de Datos 🙌</title>
+    <title>Bienvenides a la Ciencia de Datos   🚀</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Pablo Reyes" />
+    <meta name="author" content="" />
     <link rel="stylesheet" href="../mainStyle.css" type="text/css" />
+    <link rel="stylesheet" href="../vendor/fontawesome/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
-class: center, middle, inverse, title-slide
 
-# Bienvenides a la Ciencia de Datos 🙌
-### Pablo Reyes
+
+
+
+
+
+
+layout: true
+  
+&lt;div class="footer"&gt;
+&lt;span&gt;
+Ciencia de Datos en R 🚀 Todo el material está disponible en &lt;a href="https://github.com/pablorm296/CursoR"&gt;GitHub&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
+
+---
+
+class: inverse, center, middle, title-slide, animated, slideInDown
+
+# Bienvenides a la Ciencia de Datos &lt;br&gt; 🚀
+
 ### 2 de marzo de 2020
 
 ---
 
+## hola_mundo()
 
+--
 
+- Pablo Reyes 🧔🏾
 
-## R Markdown
+--
 
-This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;http://rmarkdown.rstudio.com&gt;.
+- Política y AP (2014-2018)
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
-?xaringan::moon_reader()
-## Slide with Bullets
+--
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+- Buendía &amp; Laredo | Lex ++
 
-## Slide with R Output
+--
 
+- Programación (JS, Python y R) + estadística
 
-```r
-summary(cars)
-```
+--
 
-```
-##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00
-```
+- Encuestas
+- Seguimiento de actores en medios y redes
+- Repositorio legal
 
-## Slide with Plot
+--
 
-![](U01_L001_files/figure-html/pressure-1.png)&lt;!-- --&gt;
+---
+class: inverse, center, middle
+
+### ¡Cuéntenme de ustedes!
+
+¿Cuáles son sus temas de interés?
+
+¿Han usado &lt;i class="fab fa-r-project"&gt;&lt;/i&gt;?
+
+---
+
+## ¿Por qué Ciencia de Datos?
+
+- Aprenderemos a programar 💻
+- Aprenderemos a procesar datos 🔧
+- Aprenderemos a analizar 🔍
+- Aprenderemos a comunicar 📊
+
+Todo esto, mientras usamos &lt;i class="fab fa-r-project"&gt;&lt;/i&gt; (y otras herramientas).
+
+---
+layout: true
+
+## ¿Qué esperar de este curso?
+
+&lt;div class="footer"&gt;
+&lt;span&gt;
+Ciencia de Datos en R 🚀 Todo el material está disponible en &lt;a href="https://github.com/pablorm296/CursoR"&gt;GitHub&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
+
+---
+
+--
+
+Este es un curso introductorio a la ciencia de datos con un ligero énfasis en temas de ciencia política e inferencia estadística.
+
+--
+
+**¿Necesito saber estadística o programación?**
+
+--
+
+No. Todos partiremos "desde cero".
+
+--
+
+**¿Este es un curso de metodología cuanti / estadística?**
+
+--
+
+No. Cuando lleguemos a la Unidad II, trabajaremos frecuentemente con temas de estadística (inferencia y modelado). Sin embargo, no nos detendremos en todos sus resquicios teóricos. Piénsenlo como un repaso / introducción general.
+
+---
+
+**¿Donde puedo leer más sobre métodos cuantis / estadística?**
+
+--
+
+Alan Agresti y Barbara Finlay, _Statistical Methods for the Social Sciences_ y otros documentos citados en README.md (más sobre esto al rato).
+
+--
+
+**¿Por qué** &lt;i class="fab fa-r-project"&gt;&lt;/i&gt;**?**
+
+--
+
+- Abierto y gratuito (SPSS: +1000 USD/año, STATA: +900 USD/año)
+
+--
+
+- Hecho a la medida de un científico (&lt;i class="fab fa-python"&gt;&lt;/i&gt;)
+
+--
+
+- `ggplot2`: Una de las mejores herramientas para la visualización de datos
+
+---
+layout: true
+  
+&lt;div class="footer"&gt;
+&lt;span&gt;
+Ciencia de Datos en R 🚀 Todo el material está disponible en &lt;a href="https://github.com/pablorm296/CursoR"&gt;GitHub&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
+
+---
+
+class: inverse, center, middle
+
+### Para que se den un quemón...
+
+---
+
+## Nate Silver's 538 (Popularidad de Donald Trump)
+
+.pull-left[
+Regresión Local Polinomial para estimar una línea de tendencia: `ggplot2` + `loess()`
+
+_Original_: R + JavaScript
+
+[How unpopular is Donald Trump](https://projects.fivethirtyeight.com/trump-approval-ratings)
+]
+
+.pull-right[
+&lt;img src="imgs/example_538.png" width="100%" height="100%" /&gt;
+]
+
+---
+
+##  Spatia.ly (Bitácoras de viaje españolas del S. XVIII)
+
+.pull-left[
+
+Representación de datos georeferenciados: `ggplot2`
+
+_Original_: R
+
+[Mapping historic tracks](https://spatial.ly/2016/10/mapping-historic-tracks-ggplot2/)
+]
+
+.pull-right[
+&lt;img src="imgs/example_spain.png" width="100%" height="100%" /&gt;
+]
+
+---
+
+## Análisis de redes para explicar difusión de rituales mayas
+
+.pull-left[
+
+Algo más académico... análisis y visualización de redes: `ggplot2` + `eha` + `tidygraph` 
+
+_Original_: R
+
+]
+
+.pull-right[
+&lt;img src="imgs/example_maya.png" width="100%" height="100%" /&gt;
+]
+
+---
+
+## La comunidad: 
+
+##### R-Ladies
+
+&gt; As a diversity initiative, the mission of R-Ladies is to **achieve proportionate representation by encouraging, inspiring, and empowering people of genders currently underrepresented in the R community**...
+
+##### CRAN
+
+&gt; 15 324 paquetes disponibles
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
 "ratio": "16:9",
-"highlightStyle": "github",
+"highlightStyle": "solarized-light",
 "countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
