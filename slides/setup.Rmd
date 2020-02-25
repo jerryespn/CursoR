@@ -1,0 +1,20 @@
+
+
+```{r setup, include=FALSE}
+#Opciones de knitr
+knitr::opts_chunk$set(echo = TRUE,
+                      dev = 5)
+
+#Opciones de R
+options()
+```
+
+layout: true
+  
+<div class="footer">
+<span>
+Ciencia de Datos en R `r emo::ji('rocket')` Todo el material está disponible en <a href="https://github.com/pablorm296/CursoR">GitHub</a>
+</span>
+</div> 
+
+---
