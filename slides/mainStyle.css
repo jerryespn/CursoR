@@ -1,38 +1,110 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Raleway|Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap");
+ul {
+  list-style: none; }
+
+li {
+  margin: 2px 0; }
+  li p {
+    display: inline-block;
+    margin: 2px 0; }
+
+li::before {
+  content: "⮕";
+  color: #e75a7c;
+  display: inline-block;
+  width: 1.5em;
+  margin-left: -1.5em; }
+
 body {
   font-family: "Roboto", sans-serif;
-  font-size: 14pt;
   background-color: #f2f5ea;
   color: #2c363f; }
 
-h1 {
-  font-size: 44pt;
-  color: #e75a7c; }
+.remark-inline-code {
+  font-family: "Source Code Pro";
+  font-family: "Source Code Pro";
+  background-color: #d6dbd2;
+  border-radius: 5%; }
 
-h2 {
-  font-size: 38pt;
-  color: #e75a7c; }
+.remark-slide-content {
+  font-size: 18pt; }
+  .remark-slide-content h1 {
+    font-size: 42pt;
+    color: #e75a7c; }
+  .remark-slide-content h2 {
+    font-size: 36pt;
+    color: #e75a7c; }
+  .remark-slide-content h3 {
+    font-size: 30pt;
+    color: #e75a7c; }
+  .remark-slide-content h4 {
+    font-size: 24pt;
+    color: #e75a7c; }
+  .remark-slide-content h5 {
+    font-size: 18pt;
+    color: #e75a7c; }
+  .remark-slide-content h6 {
+    font-size: 12pt;
+    color: #e75a7c; }
 
-h3 {
-  font-size: 32pt;
-  color: #e75a7c; }
-
-h4 {
-  font-size: 26pt;
-  color: #e75a7c; }
-
-h5 {
-  font-size: 20pt;
-  color: #e75a7c; }
-
-h6 {
-  font-size: 14pt;
-  color: #e75a7c; }
+.title-slide h3 {
+  font-size: 22px; }
+.title-slide .footer {
+  display: none; }
 
 .inverse {
   font-family: "Roboto", sans-serif;
-  font-size: 14pt;
+  font-size: 18pt;
   background-color: #2c363f;
-  color: #e75a7c; }
+  color: #f2f5ea; }
+  .inverse h1 {
+    color: #e75a7c; }
+  .inverse h2 {
+    color: #e75a7c; }
+  .inverse h3 {
+    color: #e75a7c; }
+  .inverse h4 {
+    color: #e75a7c; }
+  .inverse h5 {
+    color: #e75a7c; }
+  .inverse h6 {
+    color: #e75a7c; }
+  .inverse .footer {
+    border-top: 1px solid #e2a0b0; }
+    .inverse .footer span {
+      color: #d6dbd2; }
+
+.footer {
+  border-top: 1px solid #d6dbd2;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  height: 40px;
+  width: 100%; }
+  .footer span {
+    font-size: 9pt;
+    padding: 0px 50px;
+    color: #505050; }
+    .footer span a,
+    .footer span a:visited {
+      color: #e75a7c; }
+
+.pull-left {
+  float: left;
+  width: 47%; }
+
+.pull-right {
+  float: right;
+  width: 47%; }
+
+.alter_1 {
+  color: #505050;
+  font-size: 14pt; }
+
+blockquote {
+  border-left: solid 5px lightgray;
+  padding-left: 1em; }
 
 /*# sourceMappingURL=mainStyle.css.map */

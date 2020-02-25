@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway|Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
 
 //Colores del tema
 $color1: rgba(44, 54, 63, 1);
+$color1_light: rgba(100, 100, 100, 1);
 $color2: rgba(231, 90, 124, 1);
+$color2_light: rgb(226, 160, 176);
 $color3: rgba(242, 245, 234, 1);
 $color4: rgba(214, 219, 210, 1);
 $color5: rgba(187, 199, 164, 1);
@@ -12,27 +15,142 @@ $fuente_texto: "Roboto",
 sans-serif;
 $fuente_encabezados: "Raleway",
 sans-serif;
-$tamaño_base: 14pt;
+$fuente_código: "Source Code Pro";
+$tamaño_base: 18pt;
 $factor_encabezado: 6;
 
+//Lista no ordenada
+ul {
+    list-style: none;
+}
+
+//Elemento de lista
+li {
+    margin: 2px 0;
+
+    p {
+        display: inline-block;
+        margin: 2px 0;
+    }
+
+}
+
+//Elemento de lista
+li::before {
+    content: "⮕";
+    color: $color2;
+    display: inline-block;
+    width: 1.5em;
+    margin-left: -1.5em
+}
+
+//Cuerpo del documento
 body {
     font-family: $fuente_texto;
-    font-size: $tamaño_base;
     background-color: $color3;
     color: $color1;
 }
 
-//COnfiguración de los headers
-@for $i from 1 through 6 {
-    h#{$i} {
-        font-size: $tamaño_base + $factor_encabezado * (6 - $i);
-        color: $color2;
+//Clase principal: código en línea
+.remark-inline-code {
+    font-family: $fuente_código;
+    font-family: "Source Code Pro";
+    background-color: $color4;
+    border-radius: 5%;
+}
+
+//Clase principal: contenido de la diapostiva
+.remark-slide-content {
+    font-size: $tamaño_base;
+
+    //Configurar todos los headers de una vez
+    @for $i from 1 through 6 {
+        h#{$i} {
+            font-size: $tamaño_base + $factor_encabezado * (5 - $i);
+            color: $color2;
+        }
+    }
+
+}
+
+//Clase para la diapositiva con el título
+.title-slide {
+
+    //Texto en h3
+    h3 {
+        font-size: 22px;
+    }
+
+    //Footer
+    .footer {
+        display: none;
     }
 }
 
+//Clase para las diapositivas investidas (título)
 .inverse {
     font-family: $fuente_texto;
     font-size: $tamaño_base;
     background-color: $color1;
-    color: $color2;
+    color: $color3;
+
+    //Configurar todos los headers de una vez
+    @for $i from 1 through 6 {
+        h#{$i} {
+            color: $color2;
+        }
+    }
+
+    //Clase para el footer de la página
+    .footer {
+        border-top: 1px solid $color2_light;
+
+        span {
+            color: $color4;
+        }
+
+    }
+}
+
+//Clase para el footer de la página
+.footer {
+    border-top: 1px solid $color4;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    height: 40px;
+    width: 100%;
+
+    span {
+        font-size: 9pt;
+        padding: 0px 50px;
+        color: #505050;
+
+        a,
+        a:visited {
+            color: $color2;
+        }
+
+    }
+
+}
+
+.pull-left {
+    float: left;
+    width: 47%;
+}
+
+.pull-right {
+    float: right;
+    width: 47%;
+}
+
+.alter_1 {
+    color: #505050;
+    font-size: 14pt;
+}
+
+blockquote {
+    border-left: solid 5px lightgray;
+    padding-left: 1em;
 }
