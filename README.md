@@ -31,34 +31,34 @@ El curso está estructurado bajo la misma lógica de un buen análisis de datos.
 
 * __Unidad I: Explorar los datos__.
   * __Lección 1:__ Bienvenides a la Ciencia de Datos.
-    * __Lección 2:__ Un buen análisis siempre es reproducible.
-      * Introducción a dos de nuestras principales herramientas de trabajo: `RStudio`, `Git` y `GitHub`.
-    * __Lección 3:__ ¿Cómo votan los países en la ONU?
-      * Introducción a `R`: uso básico y data.frame.
-      * Introducción al paradigma y paquetería `tidyverse`.
-        * Introducción a la visualización de datos en `ggplot2`.
-    * __Lección 4:__ ¿Las colonias ricas son las que consumen más agua en la Ciudad de México?
-      * Exploración de datos en `dplyr`.
-      * Estadística descriptiva en `R`.
-      * Introducción a los tipos primitivos en R (`character`, `numeric`, `integer`, `double`, `complex`, `logical`).
-    * __Lección 5:__ ¿Cuáles son los cruceros más peligrosos en la Ciudad de México?
-      * Limpieza y reestructuración de (malas) bases de datos en `dplyr`.
-      * Tipos derivados en R (`factor`, `date`).
-      * Estructuras de datos en R (`list`, `data.frame`, `vector`, `array`, `matrix`).
-    * __Lección 6:__ Tips para la visualización de datos y resolución de conflictos en `Git`.
-    * __Lección 7:__ Radiografía de las elecciones federales de 2018 (Parte I).
-      * Instalación local de `R` y `RStudio`.
-      * Introducción a la programación en `R`.
-        * Vectores, matrices y paradigma `[l,s,t]apply`.
-        * Funciones.
-        * Estructuras de control y bucles.
-    * __Lección 8:__ Radiografía de las elecciones federales de 2018 (Parte II).
-      * Mapas en `ggplot2`.
-    * __Lección 9:__ Las top 250 películas de IMDb.
-      * Introducción a WebScrapping pasivo:
-        * Básicos de `HTML`, `CSS` y `JS`.
-        * Uso de la API de `selenium` para `R`.
-* __Unidad II: Explotar los datos__.
+  * __Lección 2:__ Un buen análisis siempre es reproducible.
+    * Introducción a dos de nuestras principales herramientas de trabajo: `RStudio`, `Git` y `GitHub`.
+  * __Lección 3:__ ¿Cómo votan los países en la ONU?
+    * Introducción a `R`: uso básico y data.frame.
+    * Introducción al paradigma y paquetería `tidyverse`.
+    * Introducción a la visualización de datos en `ggplot2`.
+  * __Lección 4:__ ¿Las colonias ricas son las que consumen más agua en la Ciudad de México?
+    * Exploración de datos en `dplyr`.
+    * Estadística descriptiva en `R`.
+    * Introducción a los tipos primitivos en R (`character`, `numeric`, `integer`, `double`, `complex`, `logical`).
+  * __Lección 5:__ ¿Cuáles son los cruceros más peligrosos en la Ciudad de México?
+    * Limpieza y reestructuración de (malas) bases de datos en `dplyr`.
+    * Tipos derivados en R (`factor`, `date`).
+    * Estructuras de datos en R (`list`, `data.frame`, `vector`, `array`, `matrix`).
+  * __Lección 6:__ Tips para la visualización de datos y resolución de conflictos en `Git`.
+  * __Lección 7:__ Radiografía de las elecciones federales de 2018 (Parte I).
+    * Instalación local de `R` y `RStudio`.
+    * Introducción a la programación en `R`.
+    * Vectores, matrices y paradigma `[l,s,t]apply`.
+    * Funciones.
+    * Estructuras de control y bucles.
+  * __Lección 8:__ Radiografía de las elecciones federales de 2018 (Parte II).
+    * Mapas en `ggplot2`.
+  * __Lección 9:__ Las top 250 películas de IMDb.
+    * Introducción a WebScrapping pasivo:
+    * Básicos de `HTML`, `CSS` y `JS`.
+    * Uso de la API de `selenium` para `R`.
+  * __Unidad II: Explotar los datos__.
   * __Lección 10:__ ¿Hay un sesgo de género en las admisiones a UC Berkeley?.
     * Paradoja de Simpson: La importancia de siempre empezar por un buen análisis exploratorio.
     * Correlación y causalidad.
