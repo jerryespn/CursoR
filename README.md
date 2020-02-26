@@ -1,10 +1,8 @@
-# Ciencia de Datos en R :rocket
+# Ciencia de Datos en R :rocket:
 
 Un curso para principiantes diseñado por Pablo Reyes Moctezuma e inspirado en [Data Science in a Box](https://datasciencebox.org/) y
 [Stat 545](https://stat545.com) de la [Dra. Mine Çetinkaya-Rundel](https://www2.stat.duke.edu/~mc301/) y la
 [Dra. Jenny Bryan](https://jennybryan.org), respectivamente.
-
-<!-- TOC -->autoauto- [Ciencia de Datos en R :rocket](#ciencia-de-datos-en-r-rocket)auto    - [Hora y lugar del curso](#hora-y-lugar-del-curso)auto    - [Contacto](#contacto)auto    - [Descripción :pencil](#descripción-pencil)auto    - [Objetivos del curso :dart](#objetivos-del-curso-dart)auto    - [Contenido del curso :package](#contenido-del-curso-package)auto    - [Material necesario para el curso](#material-necesario-para-el-curso)auto    - [Lecturas recomendadas](#lecturas-recomendadas)autoauto<!-- /TOC -->
 
 ## Hora y lugar del curso
 
@@ -16,18 +14,18 @@ __Lunes de 16:00 a 19:00__ en El Colegio de México (se dará aviso sobre la sal
 
 :bird: [@pablorm296](https://github.com/pablorm296)
 
-## Descripción :pencil
+## Descripción :pencil:
 
 En unas cuantas palabras, este es un curso para estudiantes de ciencias sociales que, independientemente de su experiencia en estadística o programando, quieran aprender a procesar datos, extraer valor de ellos y comunicarlo, todo esto usando distintas herramientas computacionales —principalmente `R`, `RStudio` y `Git`—.
 
-## Objetivos del curso :dart
+## Objetivos del curso :dart:
 
 1. Que los alumnos puedan limpiar, manipular y transformar datos estructurados y no estructurados.
 2. Que los alumnos puedan producir visualizaciones de datos para explorarlos y comunicar hallazgos interesantes.
 3. Que los alumnos puedan hacer uso de herramientas de inferencia y predicción para formular conclusiones rigurosas.
 4. Que los alumnos se familiaricen con las principales características del lenguaje `R` y con los paradigmas de programación que rigen dicho lenguaje.
 
-## Contenido del curso :package
+## Contenido del curso :package:
 
 El curso está estructurado bajo la misma lógica de un buen análisis de datos. Primero, nos enfocaremos en el análisis exploratorio, es decir, aprenderemos a importar, procesar y visualizar datos con el principal objetivo de resumir y entender patrones de interés. En segundo lugar, aprenderemos a usar herramientas estadísticas para modelar, inferir y predecir fenómenos con nuestros datos.
 
@@ -89,11 +87,11 @@ El curso está estructurado bajo la misma lógica de un buen análisis de datos.
     * Uso de simulación estadística en modelos lineales.
   * __Lección 17:__ Tips para presentar y comunicar resultados de modelos estadísticos usando `ggplot2` y `Rmarkdown`.
 
-## Material necesario para el curso
+## Material necesario para el curso :white_check_mark:
 
 Para el curso es necesario una computadora de escritorio o portatil con al menos 2 GB de espacio en disco libres (para instalar R, RStudio, Git y guardar los datos con los que trabajaremos). También es necesario crear una cuenta en GitHub y RStudio Cloud (ambas son completamente gratuitas; los materiales de trabajo y presentaciones se distribuirán en éstas). Más sobre esto antes de iniciar el curso.
 
-## Lecturas recomendadas
+## Lecturas recomendadas :books:
 
 Este no es un curso de metodología cuantitativa o estadística, por lo que no habrá asignación de lecturas. Sin embargo, hay que reconocer que muchos temas (especialmente en la unidad II) merecen un repaso teórico más profundo (sobre todo si el alumno piensa usar lo aprendido en una tesis/paper/entregable). Por esto, aquí dejo una bibliografía a la cual siempre se puede acudir si es necesario ahondar en un tema.
 
