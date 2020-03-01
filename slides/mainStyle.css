@@ -50,7 +50,11 @@ body {
     color: #e75a7c; }
 
 .title-slide h3 {
-  font-size: 22px; }
+  font-size: 18pt; }
+.title-slide .subtitle {
+  color: #f2f5ea;
+  font-size: 22pt;
+  font-weight: bold; }
 .title-slide .footer {
   display: none; }
 
@@ -70,6 +74,9 @@ body {
   .inverse h5 {
     color: #e75a7c; }
   .inverse h6 {
+    color: #e75a7c; }
+  .inverse a,
+  .inverse a:visited {
     color: #e75a7c; }
   .inverse .footer {
     border-top: 1px solid #e2a0b0; }
@@ -106,5 +113,9 @@ body {
 blockquote {
   border-left: solid 5px lightgray;
   padding-left: 1em; }
+
+.reference {
+  font-size: 10pt;
+  text-align: center; }
 
 /*# sourceMappingURL=mainStyle.css.map */

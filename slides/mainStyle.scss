@@ -78,9 +78,16 @@ body {
 
     //Texto en h3
     h3 {
-        font-size: 22px;
+        font-size: 18pt;
     }
-
+    
+    //Subtítulo
+    .subtitle {
+        color: $color3;
+        font-size: 22pt;
+        font-weight: bold;
+    }
+    
     //Footer
     .footer {
         display: none;
@@ -100,6 +107,12 @@ body {
             color: $color2;
         }
     }
+    
+    //Links
+    a,
+        a:visited {
+            color: $color2;
+        }
 
     //Clase para el footer de la página
     .footer {
@@ -153,4 +166,9 @@ body {
 blockquote {
     border-left: solid 5px lightgray;
     padding-left: 1em;
+}
+
+.reference {
+    font-size: 10pt;
+    text-align: center;
 }
