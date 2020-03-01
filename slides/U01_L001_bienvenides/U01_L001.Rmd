@@ -18,7 +18,7 @@ output:
 
 class: inverse, center, middle, title-slide, animated, slideInDown
 
-# Bienvenides a la Ciencia de Datos <br> `r emo::ji('rocket')`
+# L01: Bienvenides a la Ciencia de Datos <br> `r emo::ji('rocket')`
 
 ### 2 de marzo de 2020
 
