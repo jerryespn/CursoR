@@ -145,3 +145,7 @@ knitr::include_graphics("imgs/versionControl.png")
 * Si tienen un problema, alcen su mano.
 * Si ya acabaron y ven que alguien na'más no puede, ayúdenle.
 
+---
+class: inverse, center, middle
+
+## Demos un paseo por RStudio
