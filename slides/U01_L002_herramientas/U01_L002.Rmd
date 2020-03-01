@@ -1,0 +1,39 @@
+---
+title: "Un buen análisis siempre es reproducible <br> `r emo::ji('microscope')`"
+author: ""
+date: "2 de marzo de 2020"
+output:
+  xaringan::moon_reader:
+    seal: False
+    css: ["../mainStyle.css", "../vendor/fontawesome/css/all.css", "L02.css", "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"]
+    lib_dir: libs
+    nature:
+      ratio: '16:9'
+      highlightStyle: solarized-light
+      countIncrementalSlides: false
+---
+
+```{r child = "../setup.Rmd"}
+```
+
+class: inverse, center, middle, title-slide, animated, slideInDown
+
+# L02: Un buen análisis siempre es reproducible <br> `r emo::ji('microscope')`
+
+.subtitle[Introducción a nuestras herramientas de trabajo]
+
+### 2 de marzo de 2020
+
+---
+class: inverse, center, middle
+
+Más del .bigN[70%] <br> no puede reproducir los análisis de otros investigadores.
+
+.reference[Monya Baker, "1,500 scientists lift the lid on reproducibility", _Nature_, 28 de julio de 2016, https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970, consultado el 1 de marzo de 2020.]
+
+---
+class: inverse, center, middle
+
+Más del .bigN[50%] <br> no puede reproducir **sus propios análisis**.
+
+.reference[Monya Baker, "1,500 scientists lift the lid on reproducibility", _Nature_, 28 de julio de 2016, https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970, consultado el 1 de marzo de 2020.]
