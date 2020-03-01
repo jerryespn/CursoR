@@ -101,7 +101,7 @@ No. Todos partiremos "desde cero".
 
 --
 
-No. Cuando lleguemos a la Unidad II, trabajaremos frecuentemente con temas de estadística (inferencia y modelado). Sin embargo, no nos detendremos en todos sus resquicios teóricos. Piénsenlo como un repaso / introducción general.
+No, en el sentido de que no ahondaremos en detalles teóricos. Sin embargo, cuando lleguemos a la Unidad II, trabajaremos frecuentemente con temas de estadística (usar R para inferir, predecir y explicar). Piénsenlo como un repaso / introducción general.
 
 ---
 
@@ -117,17 +117,18 @@ Alan Agresti y Barbara Finlay, _Statistical Methods for the Social Sciences_ y o
 
 --
 
-- Abierto y gratuito (SPSS: +1000 USD/año, STATA: +900 USD/año)
+- Proyecto de código libre y abierto (SPSS: +1000 USD/año, STATA: +900 USD/año)
 
 --
 
-- Hecho a la medida de un científico (<i class="fab fa-python"></i>)
+- Hacer estadística en R es ridículamente fácil (a diferencia de <i class="fab fa-python"></i>)
 
 --
 
 - `ggplot2`: Una de las mejores herramientas para la visualización de datos
 
 ---
+
 layout: true
   
 <div class="footer">
@@ -138,73 +139,25 @@ Ciencia de Datos en R `r emo::ji('rocket')` Todo el material está disponible en
 
 ---
 
-class: inverse, center, middle
+## Dinámica de la clase
 
-### Para que se den un quemón...
-
----
-
-## Nate Silver's 538 (Popularidad de Donald Trump)
-
-.pull-left[
-Regresión Local Polinomial para estimar una línea de tendencia: `ggplot2` + `loess()`
-
-_Original_: R + JavaScript
-
-[How unpopular is Donald Trump](https://projects.fivethirtyeight.com/trump-approval-ratings)
-]
-
-.pull-right[
-```{r, echo=FALSE, out.height='100%', out.width='100%'}
-knitr::include_graphics("imgs/example_538.png")
-```
-]
+- Aprender haciendo
+- Siéntanse libres de interrumpir y preguntar
+- Cuando trabajemos con código: primero yo, después ustedes
+- Tareas.
+  - Usen el grupo de WA para dudas
+  - `r emo::ji('no_good')` Tengo duda con la pregunta 2
+  - `r emo::ji('+1')` Tengo una duda con el uso de `filter()`
 
 ---
 
-##  Spatia.ly (Bitácoras de viaje españolas del S. XVIII)
+## El internet es su mejor amigo
 
-.pull-left[
-
-Representación de datos georeferenciados: `ggplot2`
-
-_Original_: R
-
-[Mapping historic tracks](https://spatial.ly/2016/10/mapping-historic-tracks-ggplot2/)
-]
-
-.pull-right[
-```{r, echo=FALSE, out.height='100%', out.width='100%'}
-knitr::include_graphics("imgs/example_spain.png")
-```
-]
+- A menos que indique lo contrario, el re-uso de código está permitido (obvio, indicando la fuente).
+- Google: *r split string by character*
+- Google: *ggplot2 save as svg*
+- Google: *r error cannot change working directory*
+- https://stackoverflow.com/
 
 ---
 
-## Análisis de redes para explicar difusión de rituales mayas
-
-.pull-left[
-
-Algo más académico... análisis y visualización de redes: `ggplot2` + `eha` + `tidygraph` 
-
-_Original_: R
-
-]
-
-.pull-right[
-```{r, echo=FALSE, out.height='100%', out.width='100%'}
-knitr::include_graphics("imgs/example_maya.png")
-```
-]
-
----
-
-## La comunidad: 
-
-##### R-Ladies
-
-> As a diversity initiative, the mission of R-Ladies is to **achieve proportionate representation by encouraging, inspiring, and empowering people of genders currently underrepresented in the R community**...
-
-##### CRAN
-
-> 15 324 paquetes disponibles
