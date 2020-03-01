@@ -1,0 +1,80 @@
+---
+title: "¿Cómo votan los países en el Consejo General de las Naciones Unidas?"
+author: "Pablo Reyes Moctezuma"
+date: "1/3/2020"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    toc_collapsed: true
+    toc_depth: 3
+    number_sections: true
+    highlight: tango
+theme: simplex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+En este primer ejercicio, con el pretexto de analizar el registro histórico de votaciones en la Asamblea General de las Naciones Unidas, aprenderemos a usar R Markdown para generar documentos desde RStudio y nos introduciremos al mundo de `ggplot2` y `dplyr` para producir nuestros primeros gráficos.
+
+# Nuestro primer gráfico
+
+```{r figura_1, echo=FALSE, message=FALSE, warning=FALSE, dev='png', fig.height=5, fig.width=10, dpi=300}
+library(unvotes)
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+
+un_votes %>% 
+  filter(country %in% c("United States of America", "United Kingdom of Great Britain and Northern Ireland")) %>%
+  inner_join(un_roll_calls, by = "rcid") %>%
+  inner_join(un_roll_call_issues, by = "rcid") %>%
+  group_by(country, year = year(date), issue) %>%
+  summarize(
+    votes = n(),
+    percent_yes = mean(vote == "yes") * 100
+  ) %>%
+  ggplot(mapping = aes(x = year, y = percent_yes, color = country)) +
+  geom_point() +
+  geom_smooth(method = "loess", se = FALSE) +
+  facet_wrap( ~ issue) +
+  labs(
+    title = "Percentage of 'Yes' votes in the UN General Assembly",
+    subtitle = "Key issues (1946 to 2015)",
+    y = "% Yes",
+    x = "Year",
+    color = "Country"
+  )
+```
+
+# Introducción a R Markdown
+
+R Markdown es un **lenguaje marcado** (_markup language_, en inglés), es decir un lenguaje que nos permite escribir documentos y agregar, en forma de etiquetas o marcas (_tags_), información adicional sobre la estructura y formato de nuestro texto. La particularidad de R Markdown es que nos permite guardar y ejecutar código directamente desde RStudio. Esto facilita enormemente la generación de reportes y entregrables para compartir nuestros análisis.  
+
+## Estructura de un documento
+
+Todos los documentos inician con una cabecera y en ella siempre especificarás la información básica de tu documento (título, fecha, autor y formato de compilación). La cabecera siempre se delimita con tres guiones cortos al inicio y al final (`---`). En el ejemplo de abajo, encontrarás la cabecera para un documento que se titula "¡Hola mundo!" y que esperamos compilar en un documento html.
+
+```yaml
+---
+title: "¡Hola mundo!"
+author: "Yo"
+date: "1/3/2020"
+output: 
+  html_document
+---
+```
+
+Después de la cabecera, puedes a empezar a escribir tu documento.
+
+
+```{r ejemploMD, echo = FALSE, comment=""}
+cat(htmltools::includeText("example.Rmd"))
+```
+
+
+### Etiquetas
+
