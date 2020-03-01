@@ -105,7 +105,7 @@ Este no es un curso de metodología cuantitativa o estadística, por lo que no h
   * Nicholas J. Horton, et al., _A Student’s Guide to R_, Project Mosaic, 2015. Texto completo disponible en: <https://cran.r-project.org/doc/contrib/Horton+Pruim+Kaplan_MOSAIC-StudentGuide.pdf>
   * Jenny Bryan, _Stat 545: Data wrangling, exploration, and analysis with R_. Texto completo disponible en: <https://stat545.com/index.html>
   
-  ## Contenido del repositorio
+## Contenido del repositorio
   
   * __/slides__: Carpeta con las presentaciones usadas en cada clase.
   * __/handouts__: Carpeta con los materiales para trabajar en clase.
