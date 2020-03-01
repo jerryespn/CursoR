@@ -37,3 +37,111 @@ class: inverse, center, middle
 Más del .bigN[50%] <br> no puede reproducir **sus propios análisis**.
 
 .reference[Monya Baker, "1,500 scientists lift the lid on reproducibility", _Nature_, 28 de julio de 2016, https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970, consultado el 1 de marzo de 2020.]
+
+---
+
+## ¿Qué significa que un análisis sea reproducible?
+
+Corto plazo (proyecto):
+
+* Las tablas y gráficos son replicables.
+* El código es claro
+  * ¿Qué hace?
+  * ¿Por qué lo hicimos así?
+
+Largo plazo:
+
+* El código puede ser usado para analizar otros datos
+* El código puede ser implementado en otro análisis
+
+---
+
+## Nuestras herramientas de trabajo
+
+* <i class="fab fa-r-project"></i> : _Scriptability_ (de análisis y gráficos).
+* RStudio: Documentos (**RMarkdown**), proyectos, IDE.
+  * Las primeras clases usaremos Rstudio Cloud.
+* Git: Control de versiones.
+* Github: Dropbox en esteroides.
+
+.pull-left[
+```{r, echo=FALSE, out.height = '50', out.width=''}
+knitr::include_graphics("imgs/r_logo.png")
+```
+<br>
+```{r, echo=FALSE,  out.height = '50', out.width=''}
+knitr::include_graphics("imgs/git_logo.png")
+```
+]
+
+.pull-right[
+```{r, echo=FALSE,  out.height = '50', out.width=''}
+knitr::include_graphics("imgs/RStudio_logo.png")
+```
+<br>
+```{r, echo=FALSE,  out.height = '50', out.width=''}
+knitr::include_graphics("imgs/gitHub_logo.png")
+```
+]
+
+---
+
+## ¿Por qué RStudio?
+
+--
+
+* RStudio ≠ R
+  * R es el idioma de programación.
+  * RStudio es una plataforma para usar R (más fácil).
+  
+-- 
+
+* Todo en un sólo lugar
+  * Edición de código (auto completado + corrección y *syntax highlight*).
+  * Inspeccionar variables.
+  * Ver gráficos y guardarlos.
+  * Control de cambios con Git.
+* R Markdown
+  * Documentos 100% reproducibles.
+  * Código, gráficas, tablas, texto.
+  * Convertir en PDF, HTML, Office.
+
+---
+
+## ¿Para qué necesito control de versiones?
+
+.center[
+<a href="imgs/versionControl.png">
+```{r, echo=FALSE,  out.height = '500', out.width=''}
+knitr::include_graphics("imgs/versionControl.png")
+```
+</a>
+]
+
+---
+
+## ¿Para qué necesito control de versiones?
+
+* Con git podemos llevar un registro de los cambios que hacemos a un nuestros proyectos (documentos, datos).
+* Usar git duele (si lo haces fuera de RStudio), pues es una herramienta un poco difícil de usar (**basada en terminal**). 
+* En GitHub podemos guardar todos nuestros proyectos (es como dropbox, pero muchísimo mejor):
+  * Guardar el historial de git .
+  * Totalmente gratis.
+  * Espacio ilimitado, proyectos ilimitados.
+
+---
+
+## Empecemos creando nuestra cuenta de GitHub
+
+* Vayan a https://github.com/ y creen una cuenta.
+* Si tienen un problema, alcen su mano.
+* Si ya acabaron y ven que alguien na'más no puede, ayúdenle.
+
+---
+
+## Después, creemos una cuenta en RStudio Cloud
+
+* Vayan a https://rstudio.cloud y usen su cuenta de GitHub para iniciar sesión.
+* Si tienen un problema, alcen su mano.
+* Si ya acabaron y ven que alguien na'más no puede, ayúdenle.
+
