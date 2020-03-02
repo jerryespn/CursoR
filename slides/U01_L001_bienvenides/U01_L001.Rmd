@@ -61,16 +61,6 @@ class: inverse, center, middle
 
 ---
 
-## ¿Por qué Ciencia de Datos?
-
-- Aprenderemos a programar `r emo::ji('computer')`
-- Aprenderemos a procesar datos `r emo::ji('wrench')`
-- Aprenderemos a analizar `r emo::ji('mag')`
-- Aprenderemos a comunicar `r emo::ji('bar_chart')`
-
-Todo esto, mientras usamos <i class="fab fa-r-project"></i> (y otras herramientas).
-
----
 layout: true
 
 ## ¿Qué esperar de este curso?
@@ -87,7 +77,17 @@ Ciencia de Datos en R `r emo::ji('rocket')` Todo el material está disponible en
 
 Este es un curso introductorio a la ciencia de datos con un ligero énfasis en temas de ciencia política e inferencia estadística.
 
---
+---
+
+- Aprenderemos a procesar datos `r emo::ji('wrench')`
+- Aprenderemos a comunicar (visualizar y generación de documentos) `r emo::ji('bar_chart')`
+- Aprenderemos a programar `r emo::ji('computer')`
+- Aprenderemos a generar conocimiento (inferir, modelar y predecir) `r emo::ji('mag')`
+
+
+Todo esto, mientras usamos <i class="fab fa-r-project"></i> (y otras herramientas).
+
+---
 
 **¿Necesito saber estadística o programación?**
 
@@ -158,6 +158,4 @@ Ciencia de Datos en R `r emo::ji('rocket')` Todo el material está disponible en
 - Google: *ggplot2 save as svg*
 - Google: *r error cannot change working directory*
 - https://stackoverflow.com/
-
----
 
