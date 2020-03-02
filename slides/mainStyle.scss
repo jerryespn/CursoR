@@ -168,6 +168,13 @@ blockquote {
     padding-left: 1em;
 }
 
+.important {
+    border-left: solid 5px $color2;
+    padding-left: 1em;
+    background-color: $color1;
+    color: #ffffff;
+}
+
 .reference {
     font-size: 10pt;
     text-align: center;

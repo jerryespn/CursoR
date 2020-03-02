@@ -114,6 +114,12 @@ blockquote {
   border-left: solid 5px lightgray;
   padding-left: 1em; }
 
+.important {
+  border-left: solid 5px #e75a7c;
+  padding-left: 1em;
+  background-color: #2c363f;
+  color: #ffffff; }
+
 .reference {
   font-size: 10pt;
   text-align: center; }
