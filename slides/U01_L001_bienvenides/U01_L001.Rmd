@@ -157,5 +157,5 @@ Ciencia de Datos en R `r emo::ji('rocket')` Todo el material está disponible en
 - Google: *r split string by character*
 - Google: *ggplot2 save as svg*
 - Google: *r error cannot change working directory*
-- https://stackoverflow.com/
+- ht<i class="fab fa-stack-exchange"></i> tps://stackoverflow.com/
 
