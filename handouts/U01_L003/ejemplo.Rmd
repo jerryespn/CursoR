@@ -1,17 +1,110 @@
-Este es un párrafo escrito con R Markdown. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a velit quis enim laoreet maximus non non tellus. Duis sed ligula ut odio tempor finibus in in justo. Aenean ac lacus feugiat, ornare risus ut, luctus urna. Curabitur dui purus, lacinia non aliquet ut, pharetra non urna. In eu ornare sem. Vivamus et neque ac turpis cursus mattis. Aenean dui nisl, pulvinar sed porta quis, efficitur a orci. 
+---
+title: "Hola R Markdown"
+author: "Pablo Reyes Moctezuma"
+date: "1/3/2020"
+output: 
+  html_document:
+    toc: true
+    number_sections: true
+    highlight: tango
+---
 
-Para insertar un nuevo párrafo usamos dos saltos de línea (enter).
-
-Para insertar un bloque de código (chunk), usamos tres acentos graves seguidos de las opciones entre corchetes. En las opciones generalmente colocamos el idioma del bloque seguido de su nombre y, finalmente, los parámetros de ejecución del bloque. Aquí abajo hay dos ejemplos de código de bloques. El primero está escrito en R y se llama ejemplo_1. El segundo está escrito en Python y se llama ejemplo_2. 
-
-```{r ejemplo_1}
-variable_1 <- "test"
-1 + 1
-(1 + 1) == 2
+```{r setup, include=FALSE}
+#Aquí va la configuración de R
 ```
 
-```{python ejemplo_2}
-variable_2 = "test"
-1 + 1
-(1 + 1) == 2
+# Nuestro primer R Markdown
+
+Este es un ejemplo de un documento de R Markdown. Para compilar este archvio (los archivos R Markdown tiene la terminación .Rmd) y generar el documento, puedes usar la combinación de teclas `Ctr + Shift + K` o dar clic en el botón que dice _Knit_ y está en la parte superior del editor de texto.
+
+## ¿Qué es R Markwon ?
+
+R Markdown es un **lenguaje marcado** (_markup language_, en inglés), es decir un lenguaje que nos permite escribir documentos y agregar, en forma de etiquetas o marcas (_tags_), información adicional sobre la estructura y formato de nuestro texto. La particularidad de R Markdown es que nos permite guardar y ejecutar código directamente desde RStudio. Esto facilita enormemente la generación de reportes y entregrables para compartir nuestros análisis.  
+
+## Estructura de un R Markdown
+
+### Cabecera
+
+La parte que está hasta arriba es la cabecera y, en ella, definimos las propiedades de nuestro documento (título, fecha, autor y formato de compilación). La cabecera siempre se delimita con tres guiones cortos al inicio y al final (`---`).
+
+### Setup
+
+Después de escribir la cabecera, normalmente insertamos un bloque de código (__chunk__) al que le llamamos `setup` y, en él, escribimos ajustes especiales que necesitemos hacer a R. Por el momento está vacío porque no necesitamos hacer ajustes.
+
+Siempre delimitamos los bloques de código con tres acentos graves (`` ` ``) y, en la parte superior especificamos, entre corchetes, el lenguaje que usamos en el bloque, el nombre del bloque y, finalmente, opciones del bloque.
+
+    {r setup, include = False}
+    {idioma nombre, opciones}
+
+Un atajo rápido para insertar bloques de código en RStudio es con la combinación de teclas `Ctr + Alt + I`
+
+### Cuerpo del texto
+
+Después del `setup`, podemos empezar a escribir lo que queramos. Como ya mencionamos (y como podrás ver em este documento), usamos etiquetas o marcas para darle formato a nuestro texto.
+
+#### Encabezados
+
+Para poner encabezados, usamos el símbolo de gato `#`.
+
 ```
+# Encabezado nivel 1
+## Encabezado nivel 2
+### Encabezado nivel 3
+...
+###### Encabezado nivel 6
+```
+
+#### Énfasis
+
+Para texto en negritas, delimitamos el texto con dos astericos `**` o dos guiones bajos `__`. Para texto en itálicas, delimitamos con un asterisco `*` o un guión bajo `_`.
+
+```
+*Este texto está en itálicas*
+_Este texto está en itálicas_
+
+**Este texto está en negritas**
+__Este texto está en negritas__
+
+Una palabra **_combinada_**
+```
+
+#### Listas
+
+Listas numeradas (ordenadas)
+
+```
+1. Una
+2. Lista
+  2.1. Con números
+```
+
+Listas sin numeración (no ordenadas o de viñetas)
+
+```
+* Una
+* Lista
+  * Sin números
+```
+
+#### Texto sin formato
+
+Podemos insertar texto sin formato delimitándolo con un acento grave `` ` ``. Si queremos insertar varias líneas de texto sin formato podemos delimitarlas con tres acentos graves
+
+    ```
+    Aquí van
+    varias líneas
+    de texto sin formato
+    ```
+
+#### Otras etiquetas
+
+Pueden ver esta [_cheatsheet_](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf) con más etiquetas para usar en sus documentos.
+
+## Código en R Markdown
+
+```{r}
+texto <- "Este es un ejemplo"
+texto
+```
+
+
