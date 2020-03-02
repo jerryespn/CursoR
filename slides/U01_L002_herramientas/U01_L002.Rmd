@@ -29,12 +29,16 @@ class: inverse, center, middle
 
 Más del .bigN[70%] <br> no puede reproducir los análisis de otros investigadores.
 
+
+
 .reference[Monya Baker, "1,500 scientists lift the lid on reproducibility", _Nature_, 28 de julio de 2016, https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970, consultado el 1 de marzo de 2020.]
 
 ---
 class: inverse, center, middle
 
 Más del .bigN[50%] <br> no puede reproducir **sus propios análisis**.
+
+
 
 .reference[Monya Baker, "1,500 scientists lift the lid on reproducibility", _Nature_, 28 de julio de 2016, https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970, consultado el 1 de marzo de 2020.]
 
@@ -46,13 +50,12 @@ Corto plazo (proyecto):
 
 * Las tablas y gráficos son replicables.
 * El código es claro
-  * ¿Qué hace?
-  * ¿Por qué lo hicimos así?
+  * ¿Qué hace mi código?
+  * ¿Por qué lo hice así? ¿Por qué elegí estos parámetros?
 
 Largo plazo:
 
 * El código puede ser usado para analizar otros datos
-* El código puede ser implementado en otro análisis
 
 ---
 
@@ -94,10 +97,12 @@ knitr::include_graphics("imgs/gitHub_logo.png")
   * R es el idioma de programación.
   * RStudio es una plataforma para usar R (más fácil).
   
--- 
+--- 
+
+## ¿Por qué RStudio?
 
 * Todo en un sólo lugar
-  * Edición de código (auto completado + corrección y *syntax highlight*).
+  * Edición de código.
   * Inspeccionar variables.
   * Ver gráficos y guardarlos.
   * Control de cambios con Git.
@@ -123,7 +128,11 @@ knitr::include_graphics("imgs/versionControl.png")
 ## ¿Para qué necesito control de versiones?
 
 * Con git podemos llevar un registro de los cambios que hacemos a un nuestros proyectos (documentos, datos).
-* Usar git duele (si lo haces fuera de RStudio), pues es una herramienta un poco difícil de usar (**basada en terminal**). 
+
+---
+
+## ¿Para qué necesito control de versiones?
+
 * En GitHub podemos guardar todos nuestros proyectos (es como dropbox, pero muchísimo mejor):
   * Guardar el historial de git .
   * Totalmente gratis.
@@ -144,8 +153,3 @@ knitr::include_graphics("imgs/versionControl.png")
 * Vayan a https://rstudio.cloud y usen su cuenta de GitHub para iniciar sesión.
 * Si tienen un problema, alcen su mano.
 * Si ya acabaron y ven que alguien na'más no puede, ayúdenle.
-
----
-class: inverse, center, middle
-
-## Demos un paseo por RStudio
