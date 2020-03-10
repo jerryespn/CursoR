@@ -114,6 +114,11 @@ blockquote {
   border-left: solid 5px lightgray;
   padding-left: 1em; }
 
+.instruction {
+  border-left: solid 5px lightgray;
+  padding-left: 1em;
+  background-color: #fff4c9; }
+
 .important {
   border-left: solid 5px #e75a7c;
   padding-left: 1em;
@@ -123,5 +128,10 @@ blockquote {
 .reference {
   font-size: 10pt;
   text-align: center; }
+
+pre {
+  max-width: 100%;
+  overflow-x: scroll;
+  overflow-y: scroll; }
 
 /*# sourceMappingURL=mainStyle.css.map */
