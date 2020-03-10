@@ -1,3 +1,0 @@
-miNombre <- "Carlos Pérez Márquez"
-
-

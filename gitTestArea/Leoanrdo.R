@@ -1,2 +1,0 @@
-MiNombre <- "Leonardo G"
-g

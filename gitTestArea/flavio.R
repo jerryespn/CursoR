@@ -1,1 +1,0 @@
-miNombre = "Luis Lazos"

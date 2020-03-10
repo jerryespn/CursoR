@@ -1,1 +1,0 @@
-miNombre <- "Rocio Ramonetti"
