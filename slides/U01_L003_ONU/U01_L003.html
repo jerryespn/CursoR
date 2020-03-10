@@ -302,82 +302,281 @@ class: center, middle
 * En el explorador de archivos, vayan a handouts/U01_L003/paisesONU.Rmd
 
 ---
-class: center, middle
 
-# Instalar y cargar paquetes en &lt;i class="fab fa-r-project"&gt;&lt;/i&gt;
+## Instalar y cargar paquetes
 
----
-class: center, middle
+* En R, un paquete es un conjunto de funciones, documentación, ejemplos y datos.
 
-&lt;img src="imgs/pipe.jpeg" alt="Pipe" height="300"&gt; 
+--
 
-_Pipe_, en inglés. Se lee "_and then_". Pasa el último objeti como primer argumento de la siguiente función.
+* Usamos `install.packages()` para instalarlos (guardarlos en el disco duro).
 
----
-## Un vistazo a nuestros datos
+--
 
-&gt; ¿Sobre qué es la base de datos?
-&gt;
-&gt; ¿Cuántas variables hay?
-&gt;
-&gt; ¿Cuántas observaciones hay?
-&gt;
-&gt; ¿Qué valores hay en la variable `vote`
-&gt;
-&gt; ¿Qué valores hay en la variable `issue`
+* Una vez instalados, tenemos que cargarlos en memoria para que las funciones estén disponibles. 
+
+--
+
+* Usamos `library()` para cargarlos.
 
 ---
 
-## Un vistazo a nuestros datos
+## Instalar y cargar paquetes
 
-```r
-summary()
-nrow()
-ncol()
-unique()
-```
+* En este ejercicio, usamos tres paquetes: `tidyverse`, `unvotes` y `lubridate`.
 
----
-## Nuestro primer gráfico
+--
 
-&gt; ¿Sobre qué es el gráfico?
-&gt;
-&gt; ¿Cuántas variables están representadas en el gráfico?
-&gt;
-&gt; ¿Qué variables están representadas en qué __aesthetics__?
-&gt;
-&gt; ¿Qué objetos geométricos (__goeometries__) se usan para representar los datos?
+* `tidyverse` es un _umbrella package_ que, en realidad, contiene 8 paquetes (`ggplot2`, `dplyr`, `readr`, entre otros).
 
----
+* `unvotes` es un paquete que contiene __datos__: Registro de votos en la Asamblea General de la ONU desde su fundación.
 
-.center[
-&lt;img src="imgs/plot.png" alt="UN plot" height="500"&gt; 
+* `lubridate` es un paquete con un montón de funciones útiles para trabajar con datos en forma de fechas y marcas temporales.
+
+--
+
+.instruction[
+Instala y carga los paquetes.
 ]
 
 ---
-## Nuestro primer gráfico
 
-&gt; ¿Cómo creen que vota México y EEUU?
-&gt;
-&gt; ¿Votan igual?
+## Instalar y cargar paquetes
+
+
+```r
+library(tidyverse)
+```
+
+```
+## ── Attaching packages ───────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──
+```
+
+```
+## ✔ ggplot2 3.2.1     ✔ purrr   0.3.3
+## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
+## ✔ tidyr   1.0.0     ✔ stringr 1.4.0
+## ✔ readr   1.3.1     ✔ forcats 0.4.0
+```
+
+```
+## ── Conflicts ──────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+```
 
 ---
-## Nuestro primer gráfico
 
-&gt; Eligan EEUU y otro país.
+## Instalar y cargar paquetes
+
+
+```r
+library(unvotes)
+```
+
+```
+## If you use data from the unvotes package, please cite the following:
+## 
+## Erik Voeten "Data and Analyses of Voting in the UN General Assembly" Routledge Handbook of International Organization, edited by Bob Reinalda (published May 27, 2013)
+```
 
 ---
-class: center, middle
 
-## Pintemos poco a poco
+## Instalar y cargar paquetes
 
-Datos -&gt; Mapeo -&gt; Geometrías
+
+```r
+library(lubridate)
+```
+
+```
+## 
+## Attaching package: 'lubridate'
+```
+
+```
+## The following object is masked from 'package:base':
+## 
+##     date
+```
+
+---
+
+## Un primer vistazo a los datos
+
+* En el paquete `unvotes` hay tres conjuntos de datos: `un_vote`, `un_roll_calls`, `un_roll_call_issues`. 
+* Podemos echar un primer vistazo a los datos escribiendo el nombre del conjunto que queremos explorar en la consola.
+
+
+```r
+un_votes
+```
+
+```
+## # A tibble: 738,764 x 4
+##     rcid country                  country_code vote 
+##    &lt;int&gt; &lt;chr&gt;                    &lt;chr&gt;        &lt;fct&gt;
+##  1     3 United States of America US           yes  
+##  2     3 Canada                   CA           no   
+##  3     3 Cuba                     CU           yes  
+##  4     3 Haiti                    HT           yes  
+##  5     3 Dominican Republic       DO           yes  
+##  6     3 Mexico                   MX           yes  
+##  7     3 Guatemala                GT           yes  
+##  8     3 Honduras                 HN           yes  
+##  9     3 El Salvador              SV           yes  
+## 10     3 Nicaragua                NI           yes  
+## # … with 738,754 more rows
+```
+
+---
+
+## Un primer vistazo a los datos
+
+* También podemos usar el explorador incluido en RStudio
+
+---
+
+## Un primer vistazo a los datos
+
+* En R, por lo general trabajaremos con datos __tabulares__.
+
+--
+
+* Una fila = una observación. Una columna = una variable/propiedad de la observación.
+
+* Todas las observaciones comparten las mismas propiedades.
+
+---
+
+## Un primer vistazo a los datos
+
+.instruction[
+¿Qué datos hay en `un_votes`, `un_roll_calls` y `un_roll_call_issues`?
+
+¿Tienen alguna columna en común?
+
+¿Qué es cada fila?
+]
+
+---
+
+## Un primer vistazo a los datos
+
+* No siempre usaremos la consolar o el explorador de RStudio para conocer nuestros datos: no es lo más eficiente del mundo.
+
+---
+
+## Un primer vistazo a los datos
+
+* Podemos usar `head` para obtener las primeras observaciones de una tabla.
+
+
+```r
+head(un_votes, n = 5)
+```
+
+```
+## # A tibble: 5 x 4
+##    rcid country                  country_code vote 
+##   &lt;int&gt; &lt;chr&gt;                    &lt;chr&gt;        &lt;fct&gt;
+## 1     3 United States of America US           yes  
+## 2     3 Canada                   CA           no   
+## 3     3 Cuba                     CU           yes  
+## 4     3 Haiti                    HT           yes  
+## 5     3 Dominican Republic       DO           yes
+```
+
+---
+
+## Un primer vistazo a los datos
+
+* Podemos usar `tail` para obtener las últimas observaciones de una tabla.
+
+
+```r
+tail(un_votes, n = 5)
+```
+
+```
+## # A tibble: 5 x 4
+##    rcid country                          country_code vote 
+##   &lt;int&gt; &lt;chr&gt;                            &lt;chr&gt;        &lt;fct&gt;
+## 1  5466 Solomon Islands                  SB           yes  
+## 2  5466 Tuvalu                           TV           yes  
+## 3  5466 Fiji                             FJ           yes  
+## 4  5466 Marshall Islands                 MH           yes  
+## 5  5466 Micronesia (Federated States of) FM           yes
+```
+
+---
+
+## Un primer vistazo a los datos
+
+* Podemos usar `tail` para obtener las últimas observaciones de una tabla.
+
+
+```r
+tail(un_votes, n = 5)
+```
+
+```
+## # A tibble: 5 x 4
+##    rcid country                          country_code vote 
+##   &lt;int&gt; &lt;chr&gt;                            &lt;chr&gt;        &lt;fct&gt;
+## 1  5466 Solomon Islands                  SB           yes  
+## 2  5466 Tuvalu                           TV           yes  
+## 3  5466 Fiji                             FJ           yes  
+## 4  5466 Marshall Islands                 MH           yes  
+## 5  5466 Micronesia (Federated States of) FM           yes
+```
+
+---
+
+## Un primer vistazo a los datos
+
+* Podemos usar `str` (abreviación de __structure__) para obtener información sobre las columnas de la tabla.
+
+
+```r
+str(un_votes)
+```
+
+```
+## Classes 'tbl_df', 'tbl' and 'data.frame':	738764 obs. of  4 variables:
+##  $ rcid        : int  3 3 3 3 3 3 3 3 3 3 ...
+##   ..- attr(*, "comment")= chr ""
+##  $ country     : chr  "United States of America" "Canada" "Cuba" "Haiti" ...
+##  $ country_code: chr  "US" "CA" "CU" "HT" ...
+##  $ vote        : Factor w/ 3 levels "yes","abstain",..: 1 3 1 1 1 1 1 1 1 1 ...
+```
+
+---
+
+## Un primer vistazo a los datos
+
+* Podemos usar `summary` para obtener un resumen estadístico de la tabla
+
+
+```r
+summary(un_votes)
+```
+
+```
+##       rcid        country          country_code            vote       
+##  Min.   :   3   Length:738764      Length:738764      yes    :588800  
+##  1st Qu.:1874   Class :character   Class :character   abstain: 95099  
+##  Median :3157   Mode  :character   Mode  :character   no     : 54865  
+##  Mean   :3102                                                         
+##  3rd Qu.:4365                                                         
+##  Max.   :9056
+```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
 "ratio": "16:9",
-"highlightStyle": "solarized-light",
+"highlightStyle": "solarized-dark",
 "countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {

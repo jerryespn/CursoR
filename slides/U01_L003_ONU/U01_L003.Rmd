@@ -9,7 +9,7 @@ output:
     lib_dir: libs
     nature:
       ratio: '16:9'
-      highlightStyle: solarized-light
+      highlightStyle: solarized-dark
       countIncrementalSlides: false
 ---
 
@@ -290,99 +290,161 @@ class: center, middle
 * En el explorador de archivos, vayan a handouts/U01_L003/paisesONU.Rmd
 
 ---
-class: center, middle
 
-# Instalar y cargar paquetes en <i class="fab fa-r-project"></i>
+## Instalar y cargar paquetes
 
----
-class: center, middle
+* En R, un paquete es un conjunto de funciones, documentación, ejemplos y datos.
 
-<img src="imgs/pipe.jpeg" alt="Pipe" height="300"> 
+--
 
-_Pipe_, en inglés. Se lee "_and then_". Pasa el último objeti como primer argumento de la siguiente función.
+* Usamos `install.packages()` para instalarlos (guardarlos en el disco duro).
 
----
-## Un vistazo a nuestros datos
+--
 
-> ¿Sobre qué es la base de datos?
->
-> ¿Cuántas variables hay?
->
-> ¿Cuántas observaciones hay?
->
-> ¿Qué valores hay en la variable `vote`
->
-> ¿Qué valores hay en la variable `issue`
+* Una vez instalados, tenemos que cargarlos en memoria para que las funciones estén disponibles. 
+
+--
+
+* Usamos `library()` para cargarlos.
 
 ---
 
-## Un vistazo a nuestros datos
+## Instalar y cargar paquetes
 
-```r
-summary()
-nrow()
-ncol()
-unique()
-```
+* En este ejercicio, usamos tres paquetes: `tidyverse`, `unvotes` y `lubridate`.
 
----
-## Nuestro primer gráfico
+--
 
-> ¿Sobre qué es el gráfico?
->
-> ¿Cuántas variables están representadas en el gráfico?
->
-> ¿Qué variables están representadas en qué __aesthetics__?
->
-> ¿Qué objetos geométricos (__goeometries__) se usan para representar los datos?
+* `tidyverse` es un _umbrella package_ que, en realidad, contiene 8 paquetes (`ggplot2`, `dplyr`, `readr`, entre otros).
 
----
+* `unvotes` es un paquete que contiene __datos__: Registro de votos en la Asamblea General de la ONU desde su fundación.
 
-.center[
-<img src="imgs/plot.png" alt="UN plot" height="500"> 
+* `lubridate` es un paquete con un montón de funciones útiles para trabajar con datos en forma de fechas y marcas temporales.
+
+--
+
+.instruction[
+Instala y carga los paquetes.
 ]
 
 ---
-## Nuestro primer gráfico
 
-> ¿Cómo creen que vota México y EEUU?
->
-> ¿Votan igual?
+## Instalar y cargar paquetes
 
----
-## Nuestro primer gráfico
-
-> Eligan EEUU y otro país.
-
----
-class: center, middle
-
-## Pintemos poco a poco
-
-Datos -> Mapeo -> Geometrías
+```{r}
+library(tidyverse)
+```
 
 ---
 
-## Mapeo
+## Instalar y cargar paquetes
 
-* _Aesthetics_
-  * Ejes (x, y)
-  * Shape
-  * Colour
-  * Size
-  * Alpha
-  
+```{r}
+library(unvotes)
+```
+
 ---
 
-## Geometrías
+## Instalar y cargar paquetes
 
-* geom_
-  * point
-  * line
-  * column
-  * smooth
-  * ...
-  
+```{r}
+library(lubridate)
+```
 
+---
 
+## Un primer vistazo a los datos
+
+* En el paquete `unvotes` hay tres conjuntos de datos: `un_vote`, `un_roll_calls`, `un_roll_call_issues`. 
+* Podemos echar un primer vistazo a los datos escribiendo el nombre del conjunto que queremos explorar en la consola.
+
+```{r}
+un_votes
+```
+
+---
+
+## Un primer vistazo a los datos
+
+* También podemos usar el explorador incluido en RStudio
+
+---
+
+## Un primer vistazo a los datos
+
+* En R, por lo general trabajaremos con datos __tabulares__.
+
+--
+
+* Una fila = una observación. Una columna = una variable/propiedad de la observación.
+
+* Todas las observaciones comparten las mismas propiedades.
+
+---
+
+## Un primer vistazo a los datos
+
+.instruction[
+¿Qué datos hay en `un_votes`, `un_roll_calls` y `un_roll_call_issues`?
+
+¿Tienen alguna columna en común?
+
+¿Qué es cada fila?
+]
+
+---
+
+## Un primer vistazo a los datos
+
+* No siempre usaremos la consolar o el explorador de RStudio para conocer nuestros datos: no es lo más eficiente del mundo.
+
+---
+
+## Un primer vistazo a los datos
+
+* Podemos usar `head` para obtener las primeras observaciones de una tabla.
+
+```{r}
+head(un_votes, n = 5)
+```
+
+---
+
+## Un primer vistazo a los datos
+
+* Podemos usar `tail` para obtener las últimas observaciones de una tabla.
+
+```{r}
+tail(un_votes, n = 5)
+```
+
+---
+
+## Un primer vistazo a los datos
+
+* Podemos usar `tail` para obtener las últimas observaciones de una tabla.
+
+```{r}
+tail(un_votes, n = 5)
+```
+
+---
+
+## Un primer vistazo a los datos
+
+* Podemos usar `str` (abreviación de __structure__) para obtener información sobre las columnas de la tabla.
+
+```{r}
+str(un_votes)
+```
+
+---
+
+## Un primer vistazo a los datos
+
+* Podemos usar `summary` para obtener un resumen estadístico de la tabla
+
+```{r}
+summary(un_votes)
+```
 
