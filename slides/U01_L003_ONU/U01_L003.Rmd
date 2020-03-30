@@ -279,6 +279,7 @@ Creación y estudio de la representación visual de un conjunto de datos.
 ]
 
 ---
+
 class: center, middle
 
 # Nuestro primer gráfico
@@ -324,14 +325,14 @@ class: center, middle
 --
 
 .instruction[
-Instala y carga los paquetes.
+Instala y carga los paquetes necesarios, llenando los _chunks_ en blanco que están en el markdown.
 ]
 
 ---
 
 ## Instalar y cargar paquetes
 
-```{r}
+```{r tidyverse}
 library(tidyverse)
 ```
 
@@ -339,7 +340,7 @@ library(tidyverse)
 
 ## Instalar y cargar paquetes
 
-```{r}
+```{r unvotes}
 library(unvotes)
 ```
 
@@ -347,7 +348,7 @@ library(unvotes)
 
 ## Instalar y cargar paquetes
 
-```{r}
+```{r load_lubridate}
 library(lubridate)
 ```
 
@@ -358,8 +359,19 @@ library(lubridate)
 * En el paquete `unvotes` hay tres conjuntos de datos: `un_vote`, `un_roll_calls`, `un_roll_call_issues`. 
 * Podemos echar un primer vistazo a los datos escribiendo el nombre del conjunto que queremos explorar en la consola.
 
-```{r}
+```{r consoledata}
 un_votes
+```
+
+---
+
+## Un primer vistazo a los datos
+
+* En R, el operador `$` nos permite acceder a la columna de una tabla.
+
+```{r dollarsign}
+#Columna rci
+un_votes$rcid
 ```
 
 ---
@@ -384,18 +396,6 @@ un_votes
 
 ## Un primer vistazo a los datos
 
-.instruction[
-¿Qué datos hay en `un_votes`, `un_roll_calls` y `un_roll_call_issues`?
-
-¿Tienen alguna columna en común?
-
-¿Qué es cada fila?
-]
-
----
-
-## Un primer vistazo a los datos
-
 * No siempre usaremos la consolar o el explorador de RStudio para conocer nuestros datos: no es lo más eficiente del mundo.
 
 ---
@@ -404,7 +404,7 @@ un_votes
 
 * Podemos usar `head` para obtener las primeras observaciones de una tabla.
 
-```{r}
+```{r head_unvotes}
 head(un_votes, n = 5)
 ```
 
@@ -414,17 +414,7 @@ head(un_votes, n = 5)
 
 * Podemos usar `tail` para obtener las últimas observaciones de una tabla.
 
-```{r}
-tail(un_votes, n = 5)
-```
-
----
-
-## Un primer vistazo a los datos
-
-* Podemos usar `tail` para obtener las últimas observaciones de una tabla.
-
-```{r}
+```{r tail_unvotes}
 tail(un_votes, n = 5)
 ```
 
@@ -434,7 +424,7 @@ tail(un_votes, n = 5)
 
 * Podemos usar `str` (abreviación de __structure__) para obtener información sobre las columnas de la tabla.
 
-```{r}
+```{r str_unvotes}
 str(un_votes)
 ```
 
@@ -444,7 +434,210 @@ str(un_votes)
 
 * Podemos usar `summary` para obtener un resumen estadístico de la tabla
 
-```{r}
+```{r summary_unvotes}
 summary(un_votes)
 ```
+
+---
+
+## Un primer vistazo a los datos
+
+.instruction[
+¿Qué datos hay en `un_votes`, `un_roll_calls` y `un_roll_call_issues`?
+
+¿Qué es cada fila?
+]
+
+---
+
+## Manipulando los datos
+
+* Necesitamos juntar `un_votes`, `un_roll_calls` y `un_roll_call_issues` en una sola tabla.
+* El paquete `dplyr` tiene la función `inner_join` que nos permite hacer esto.
+* `inner_join` buscará **información (propiedades) que comparten los datos en las tablas**
+
+---
+
+## Manipulando los datos
+
+.center[
+<img src="imgs/inner_join.png" alt="Inner Join Chart" height="400"> 
+]
+
+---
+
+## Manipulando los datos
+
+.instruction[
+¿Qué dato/propiedad tienen en común las tablas?
+]
+
+---
+
+## Manipulando los datos
+
+* `inner_join` toma los siguientes argumentos: `x`, `y` (tablas) y `by`, nombre de la columna que tienen en común las tablas.
+* ¿Cómo podemos saber esto? usen `?` para obtener ayuda de una función: `?inner_join`.
+
+.instruction[
+¿Cómo unimos `un_votes` y `un_roll_calls`?
+]
+
+---
+
+## Manipulando los datos
+
+```{r juntar_tablas_1}
+un_votes_complete <- inner_join(x = un_votes, y = un_roll_calls, by = "rcid")
+```
+
+--
+
+```{r juntar_tablas_2}
+un_votes_complete <- inner_join(x = un_votes_complete, y = un_roll_call_issues, by = "rcid")
+```
+
+---
+
+## Manipulando los datos
+
+* En R podemos escribir eso de manera un poco más elegante usando una `pipe` con el operador `%>%`.
+
+<img src="imgs/pipe.png" alt="Inner Join Chart" height="300"> 
+
+---
+
+## Manipulando los datos
+
+* Usando la `pipe`, **podemos mandar el resultado del último comando como primer argumento del siguiente comando**.
+
+```{r}
+"hola" %>%
+  print()
+```
+
+---
+## Manipulando los datos
+
+```{r juntar_tablas_pipe}
+un_votes_complete <- un_votes %>%
+  inner_join(y = un_roll_calls, by = "rcid") %>%
+  inner_join(y = un_roll_call_issues, by = "rcid")
+```
+
+---
+
+## El primer gráfico
+
+```{r echo=FALSE}
+un_votes_complete %>% 
+  filter(country %in% c("United States of America", "United Kingdom of Great Britain and Northern Ireland")) %>%
+  group_by(country, year = year(date), issue) %>%
+  summarize(
+    votes = n(),
+    percent_yes = mean(vote == "yes") * 100
+  ) %>%
+  ggplot(mapping = aes(x = year, y = percent_yes, color = country)) +
+  geom_point() +
+  geom_smooth(method = "loess", se = FALSE) +
+  facet_wrap( ~ issue) +
+  labs(
+    title = "Percentage of 'Yes' votes in the UN General Assembly",
+    subtitle = "Key issues (1946 to 2015)",
+    y = "% Yes",
+    x = "Year",
+    color = "Country"
+  )
+```
+
+---
+
+## El primer gráfico
+
+.instruction[
+Cambien el Reino Unido por un país que les interese.
+]
+
+---
+
+## Filtrar, agrupar y resumir
+
+* En el markdown seguro notaron las funciones `filter`, `group_by` y `summarize`
+
+---
+
+## Filtrar, agrupar y resumir
+
+* `filter` nos sirve para **seleccionar filas** con base en una condición. En el markdown, le pedimos a `filter` que seleccionara las filas cuyo valor coincidiera con una lista de opciones.
+
+```r
+filter(country %in% c("United States of America", "United Kingdom of Great Britain and Northern Ireland"))
+```
+--
+
+* `c` es una abreviación de **concatenate**. La función `c` crea un vector (una lista) de elementos. En nuestro caso, creo una lista con "United States of America" y "United Kingdom of Great Britain and Northern Ireland".
+
+---
+
+## Filtrar, agrupar y resumir
+
+.instruction[
+Crea tres versiones de `un_votes_complete`. Una en donde selecciones todos los votos importantes para el departamento de estado, otra con sólo votos después de la disolución de la URSS y otra con todos los votos cuyo tema es derechos humanos ("HUman rights").
+
+Tips: recuerda los operadores básicos en R!
+]
+
+---
+
+## Filtrar, agrupar y resumir
+
+* `group_by` nos sirve para separar la información en grupos. Los grupos se definen por una o más variables.
+
+```r
+group_by(country, year = year(date), issue)
+```
+
+--
+
+* La función `year` nos permite extraer el año de una fecha. 01/01/2020 = 2020; 07/11/1917 = 1917. 
+
+---
+
+## Filtrar, agrupar y resumir
+
+<img src="imgs/group_by.png" alt="Inner Join Chart" height="300"> 
+
+---
+
+## Filtrar, agrupar y resumir
+
+.instruction[
+Agrupa cada una de las tres versiones de `un_votes_complete` por país, __sesión__ y tema
+]
+
+---
+
+## Filtrar, agrupar y resumir
+
+* `summarize` nos sirve para calcular estadística descriptiva a partir de los grupos en una tabla.
+
+```r
+summarize(
+    votes = n(),
+    percent_yes = mean(vote == "yes") * 100
+  )
+```
+--
+
+* `n` es una función que cuenta el número de filas y `mean` calcula la media. En una variable categórica, calcular la media es lo mismo que contar la proporción (contar el número de "yes" y dividirlo entre el total de observaciones).
+
+---
+
+## Filtrar, agrupar y resumir
+
+.instruction[
+¿De qué otra manera podemos calcular percent_yes usando la función `n`? Tip: tiene que ver con el uso de operadores básicos.
+
+
+]
 

@@ -23,19 +23,21 @@ En este primer ejercicio, con el pretexto de analizar el registro histórico de 
 
 Instalar y cargar paquetería `tidyverse`
 
-```{r paquetes}
+```{r install_load}
 install.packages("tidyverse")
 library(tidyverse)
 ```
 
 Instalar y cargar paquete con datos de los votos en el Consejo General de las Naciones Unidas `unvotes`.
 
-```{r paquetes}
+```{r load_unvotes}
+#Código para cargar e instalar el paquete unvotes
 ```
 
 Instalar y cargar paquete para manipular fechas `lubridate`.
 
-```{r}
+```{r load_lubridate}
+#Código para cargar e instalar el paquete lubridate
 ```
 
 # Nuestro primer gráfico
@@ -71,24 +73,18 @@ un_votes_complete %>%
   )
 ```
 
-```{r figura_1, echo=FALSE, message=FALSE, warning=FALSE, dev='png', fig.height=5, fig.width=10, dpi=300}
-un_votes_complete %>% 
-  filter(country %in% c("United States of America", "United Kingdom of Great Britain and Northern Ireland")) %>%
-  group_by(country, year = year(date), issue) %>%
-  summarize(
-    votes = n(),
-    percent_yes = mean(vote == "yes") * 100
-  ) %>%
-  ggplot(mapping = aes(x = year, y = percent_yes, color = country)) +
-  geom_col() +
-  geom_smooth(method = "loess", se = FALSE) +
-  facet_wrap(~issue) +
-  labs(
-    title = "Percentage of 'Yes' votes in the UN General Assembly",
-    subtitle = "Key issues (1946 to 2015)",
-    y = "% Yes",
-    x = "Year",
-    color = "Country"
-  )
+# Filtrar
+
+```{r}
+# Filtrar todos los votos sobre Human rights
+
+# Filtrar todos los votos después de la disolución de la unión soviética (Tratado de Belovezha)
+
+# Filtrar todos los votos importantes para el departamento de estado
 ```
 
+# Agrupar
+
+```{r}
+# Agrupa en las tres versiones que creaste arriba por país, año e issue
+```

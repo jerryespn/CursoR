@@ -4,12 +4,12 @@ library(dplyr)
 library(ggplot2)
 library(lubridate)
 
+# Ver bases de datos
 un_votes
 un_roll_call_issues
 un_roll_calls
 
-test <- un_votes
-
+# Nuestro primer gráfico
 un_votes %>% 
   filter(country %in% c("United States of America", "United Kingdom of Great Britain and Northern Ireland")) %>%
   inner_join(un_roll_calls, by = "rcid") %>%
@@ -30,4 +30,11 @@ un_votes %>%
     x = "Year",
     color = "Country"
   )
+
+# Guardar la base de datos del titanic
+titanic <- datasets::Titanic
+titanic <- titanic %>%
+  as_tibble()
+
+write_csv(titanic, "slides/U01_L003_ONU/data/titanic.csv")
 
