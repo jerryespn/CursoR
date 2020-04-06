@@ -638,6 +638,144 @@ summarize(
 .instruction[
 ¿De qué otra manera podemos calcular percent_yes usando la función `n`? Tip: tiene que ver con el uso de operadores básicos.
 
+Con summarize crea una variable `percent_amend` (en `un_votes_complete`) en la que guardes el **porcentaje de enmiendas**. 
 
+Con summarize crea una variable `percent_abstain` (en `un_votes_complete`) en la que guardes el **porcentaje de abstenciones**. 
 ]
+
+---
+
+## Desmenuzando ggplot2
+
+.center[
+<img src="imgs/gg.png" alt="Ggplot2 Logo" height="400"> 
+]
+
+---
+
+## Desmenuzando ggplot2
+
+* Antes de continuar. Ustedes perdonarán los anglicismos que se vienen en esta sección. Las distinciones semánticas que se hacen en los trabajos originales (publicados en el inglés) son muy sutiles. Desafortunadamente, aún no contamos con (muchas) traducciones o un esfuerzo parecido por crear un vocabulario para la visualización de datos.
+* La idea es simple. **Un _plot_ es un objeto que especificamos a partir de uno o más conjuntos datos y que podemos modificar agregando capas**.
+* Una capa, generalmente, **añade o modifica la información visual representada** en un _plot_.
+* _plot_  !=  _graph_  !=  _graphic_  !=  _chart_. 
+
+---
+
+## Desmenuzando ggplot2
+
+* Siempre empezamos inicializando un objeto `ggplot` con la función `ggplot`. Por lo general, siempre especifiamos los datos que vamos a usar.
+
+--
+
+```{r}
+#Filtrar la tabla
+un_votes_filtered <- un_votes_complete %>%
+  filter(country %in% c("United States of America", "Mexico")) %>%
+  group_by(country, year = year(date), issue) %>%
+  summarize(
+    votes = n(),
+    percent_yes = mean(vote == "yes") * 100)
+
+# Inicializar el objeto
+mi_plot <- ggplot(data = un_votes_filtered)
+```
+
+---
+
+## Desmenuzando ggplot2
+
+* Después de inicializar el objeto `ggplot`, podemos empezar a agregar formas (_geometries_) y especificar mapeos estéticos (_aesthetics_).
+* Un mapeo estético consiste en decirle a `ggplot2` que **asocie una variable con alguna característica estética de la forma**.
+* Por ejemplo, si usamos `geom_point(aes(x = year, y = percent_yes))`, le estamos diciendo que la posición de cada punto en el plano cartesiando va a estar dada por las variables `year` y `percent_yes`.
+
+--
+
+```{r}
+mi_plot <- ggplot(data = un_votes_filtered) +
+  geom_point(aes(x = year, y = percent_yes))
+```
+
+---
+
+## Desmenuzando ggplot2
+
+* Si agregamos `colour = country`, le vamos a decir a `ggplot2` que asocie el color de cada punto a la variable `country`.
+
+--
+
+* Nota que `ggplot2` agrega automáticamente las leyendas (ve los ejes y los puntos con colores).
+
+```{r}
+mi_plot <- ggplot(data = un_votes_filtered) +
+  geom_point(aes(x = year, y = percent_yes, colour = country))
+```
+
+---
+
+## Desmenuzando ggplot2
+
+* Toma en cuenta que no todos las formas y mapeos estéticos son compatibles.
+ 
+.instruction[
+Intenta usar `geom_bar` o `geom_area` en lugar de `geom_point`.
+]
+
+--
+
+* ¡Siempre vean la documentación (https://ggplot2.tidyverse.org/reference/index.html) o la hoja de referencia rápida (https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)!
+
+```{r}
+mi_plot <- ggplot(data = un_votes_filtered) +
+  geom_bar(aes(x = year, y = percent_yes, colour = country))
+```
+
+---
+
+## Desmenuzando ggplot2
+
+* `ggplot` tiene unas figuras (_geometries_) especiales que no trabajan directamente sobre los datos que le proporcionamos, sino sobre el resultado de algún cálculo estadístico (_stats_).
+* Una de ellas es `geom_smooth`, que agrega una línea de tendencia (obtenida por algún método de medias condicionadas... un término _fancy_ para decir "regresión").
+
+---
+
+## Desmenuzando ggplot2
+
+* Con el parámetro `method` controlamos el tipo de regresión. En este caso, `loess`: _locally estimated scatterplot smoothing_.
+* Con el parámetro `se` le decimos a `ggplot` si queremos dibujar los intervalos de confianza.
+
+```{r}
+mi_plot <- ggplot(data = un_votes_filtered) +
+  geom_point(aes(x = year, y = percent_yes, colour = country)) + 
+  geom_smooth(aes(x = year, y = percent_yes, colour = country), method = "loess", se = F)
+```
+
+---
+
+## Desmenuzando ggplot2
+
+* Otra de estas funciones especiales es `geom_histogram` y `geom_density`. El primero calcula la frecuencia de un número determinado de intervalos en los datos (histograma), mientras que el segundo dibuja la densidad de probabilidad de la variable (curva de densidad).
+
+--
+
+```{r}
+mi_plot <- ggplot(data = un_votes_filtered) +
+  geom_histogram(aes(x = year), bins = 20)
+```
+
+---
+
+## Desmenuzando ggplot2
+
+* Una _facet_, divide el _plot_ en _subplots_ con base en una variable de los datos.
+* Cuando usamos _facets_, **usaremos la notación de fórmula**. En R, marcamos fórmulas con una `~` (tilde). Todo lo que está a la derecha son variables explicativas, mientras todo lo que está a la izquierda son variables dependientes. **En el caso de _facets_, todo lo que está a la derecha son filas y todo lo que está a la izquierda son columnas.**
+
+--
+
+```{r}
+mi_plot <- ggplot(data = un_votes_filtered) +
+  geom_point(aes(x = year, y = percent_yes, colour = country)) + 
+  geom_smooth(aes(x = year, y = percent_yes, colour = country), method = "loess", se = F) +
+  facet_wrap( ~ issue)
+```
 
