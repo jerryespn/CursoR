@@ -8519,7 +8519,7 @@ mi_plot &lt;- ggplot(data = un_votes_filtered) +
 
 --
 
-* Nota que `ggplo2` agrega automáticamente las leyendas (ve los ejes y los puntos con colores).
+* Nota que `ggplot2` agrega automáticamente las leyendas (ve los ejes y los puntos con colores).
 
 
 ```r
@@ -8554,10 +8554,12 @@ mi_plot &lt;- ggplot(data = un_votes_filtered) +
 * `ggplot` tiene unas figuras (_geometries_) especiales que no trabajan directamente sobre los datos que le proporcionamos, sino sobre el resultado de algún cálculo estadístico (_stats_).
 * Una de ellas es `geom_smooth`, que agrega una línea de tendencia (obtenida por algún método de medias condicionadas... un término _fancy_ para decir "regresión").
 
---
+---
+
+## Desmenuzando ggplot2
 
 * Con el parámetro `method` controlamos el tipo de regresión. En este caso, `loess`: _locally estimated scatterplot smoothing_.
-* COn el parámetro `se` le decimos a `ggplot` si queremos dibujar los intervalos de confianza.
+* Con el parámetro `se` le decimos a `ggplot` si queremos dibujar los intervalos de confianza.
 
 
 ```r
@@ -8595,6 +8597,68 @@ mi_plot &lt;- ggplot(data = un_votes_filtered) +
   geom_point(aes(x = year, y = percent_yes, colour = country)) + 
   geom_smooth(aes(x = year, y = percent_yes, colour = country), method = "loess", se = F) +
   facet_wrap( ~ issue)
+```
+
+---
+
+## Desmenuzando ggplot2
+
+* Con `labs`, podemos especificar título, subtítulo, leyendas y pies de gráfica.
+
+--
+
+
+```r
+mi_plot &lt;- ggplot(data = un_votes_filtered) +
+  geom_point(aes(x = year, y = percent_yes, colour = country)) + 
+  geom_smooth(aes(x = year, y = percent_yes, colour = country), method = "loess", se = F) +
+  facet_wrap( ~ issue) +
+  labs(x = "Año", y = "Porcentajes de votos a favor", colour = "País", 
+       title = "¿Cómo votan México y los EE.UU en la Asamblea General de la ONU?",
+       subtitle = "Votaciones sobre resoluciones en seis temas claves",
+       caption = "Con datos de Erik Voeten \"Data and Analyses of Voting in the UN General Assembly\", 2013")
+```
+
+---
+
+## Desmenuzando ggplot2
+
+* Con `theme_xx`, podemos agregar un tema predefinido.
+
+--
+
+
+```r
+mi_plot &lt;- ggplot(data = un_votes_filtered) +
+  geom_point(aes(x = year, y = percent_yes, colour = country)) + 
+  geom_smooth(aes(x = year, y = percent_yes, colour = country), method = "loess", se = F) +
+  facet_wrap( ~ issue) +
+  labs(x = "Año", y = "Porcentajes de votos a favor", colour = "País", 
+       title = "¿Cómo votan México y los EE.UU en la Asamblea General de la ONU?",
+       subtitle = "Votaciones sobre resoluciones en seis temas claves",
+       caption = "Con datos de Erik Voeten \"Data and Analyses of Voting in the UN General Assembly\", 2013") +
+  theme_dark()
+```
+
+---
+
+## Desmenuzando ggplot2
+
+* Con `theme_xx`, podemos agregar un tema predefinido.
+
+--
+
+
+```r
+mi_plot &lt;- ggplot(data = un_votes_filtered) +
+  geom_point(aes(x = year, y = percent_yes, colour = country)) + 
+  geom_smooth(aes(x = year, y = percent_yes, colour = country), method = "loess", se = F) +
+  facet_wrap( ~ issue) +
+  labs(x = "Año", y = "Porcentajes de votos a favor", colour = "País", 
+       title = "¿Cómo votan México y los EE.UU en la Asamblea General de la ONU?",
+       subtitle = "Votaciones sobre resoluciones en seis temas claves",
+       caption = "Con datos de Erik Voeten \"Data and Analyses of Voting in the UN General Assembly\", 2013") +
+  theme_light()
 ```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

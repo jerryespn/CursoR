@@ -779,3 +779,61 @@ mi_plot <- ggplot(data = un_votes_filtered) +
   facet_wrap( ~ issue)
 ```
 
+---
+
+## Desmenuzando ggplot2
+
+* Con `labs`, podemos especificar título, subtítulo, leyendas y pies de gráfica.
+
+--
+
+```{r}
+mi_plot <- ggplot(data = un_votes_filtered) +
+  geom_point(aes(x = year, y = percent_yes, colour = country)) + 
+  geom_smooth(aes(x = year, y = percent_yes, colour = country), method = "loess", se = F) +
+  facet_wrap( ~ issue) +
+  labs(x = "Año", y = "Porcentajes de votos a favor", colour = "País", 
+       title = "¿Cómo votan México y los EE.UU en la Asamblea General de la ONU?",
+       subtitle = "Votaciones sobre resoluciones en seis temas claves",
+       caption = "Con datos de Erik Voeten \"Data and Analyses of Voting in the UN General Assembly\", 2013")
+```
+
+---
+
+## Desmenuzando ggplot2
+
+* Con `theme_xx`, podemos agregar un tema predefinido.
+
+--
+
+```{r}
+mi_plot <- ggplot(data = un_votes_filtered) +
+  geom_point(aes(x = year, y = percent_yes, colour = country)) + 
+  geom_smooth(aes(x = year, y = percent_yes, colour = country), method = "loess", se = F) +
+  facet_wrap( ~ issue) +
+  labs(x = "Año", y = "Porcentajes de votos a favor", colour = "País", 
+       title = "¿Cómo votan México y los EE.UU en la Asamblea General de la ONU?",
+       subtitle = "Votaciones sobre resoluciones en seis temas claves",
+       caption = "Con datos de Erik Voeten \"Data and Analyses of Voting in the UN General Assembly\", 2013") +
+  theme_dark()
+```
+
+---
+
+## Desmenuzando ggplot2
+
+* Con `theme_xx`, podemos agregar un tema predefinido.
+
+--
+
+```{r}
+mi_plot <- ggplot(data = un_votes_filtered) +
+  geom_point(aes(x = year, y = percent_yes, colour = country)) + 
+  geom_smooth(aes(x = year, y = percent_yes, colour = country), method = "loess", se = F) +
+  facet_wrap( ~ issue) +
+  labs(x = "Año", y = "Porcentajes de votos a favor", colour = "País", 
+       title = "¿Cómo votan México y los EE.UU en la Asamblea General de la ONU?",
+       subtitle = "Votaciones sobre resoluciones en seis temas claves",
+       caption = "Con datos de Erik Voeten \"Data and Analyses of Voting in the UN General Assembly\", 2013") +
+  theme_light()
+```
