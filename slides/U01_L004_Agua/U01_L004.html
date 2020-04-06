@@ -1,24 +1,36 @@
----
-title: "Exploración y limpieza de datos con dplyr"
-author: ""
-date: "6 de abril de 2020"
-output:
-  xaringan::moon_reader:
-    seal: False
-    css: ["../mainStyle.css", "../vendor/fontawesome/css/all.css", "L02.css", "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"]
-    lib_dir: libs
-    nature:
-      ratio: '16:9'
-      highlightStyle: solarized-dark
-      countIncrementalSlides: false
----
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Exploración y limpieza de datos con dplyr</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" href="..\mainStyle.css" type="text/css" />
+    <link rel="stylesheet" href="..\vendor\fontawesome\css\all.css" type="text/css" />
+    <link rel="stylesheet" href="L02.css" type="text/css" />
+    <link rel="stylesheet" href="https:\\cdnjs.cloudflare.com\ajax\libs\animate.css\3.7.0\animate.min.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
 
-```{r child = "../setup.Rmd"}
-```
+
+
+
+
+
+
+layout: true
+  
+&lt;div class="footer"&gt;
+&lt;span&gt;
+Ciencia de Datos en R 🚀 Todo el material está disponible en &lt;a href="https://github.com/pablorm296/CursoR"&gt;GitHub&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
+
+---
 
 class: inverse, center, middle, title-slide, animated, slideInDown
 
-# L04: Exploración y limpieza de datos <br> `r paste(emo::ji('wrench'))`
+# L04: Exploración y limpieza de datos &lt;br&gt; 🔧
 
 .subtitle[¿Qué colonias consumen más agua en la CDMX?]
 
@@ -34,7 +46,7 @@ class: center, middle
 ## Primero: mise en place
 
 .center[
-<img src="imgs/mep.jpg" alt="Mise en place simil" height="500">
+&lt;img src="imgs/mep.jpg" alt="Mise en place simil" height="500"&gt;
 ]
 
 ---
@@ -76,8 +88,9 @@ abcd, abcd, abcd, abcd \r\n
 
 * ¡Los parámetros `stringsAsFactors` y `encoding` son super importantes!
 
-```{r}
-datosAgua <- read.csv("data/agua.csv", stringsAsFactors = F, encoding = "UTF-8")
+
+```r
+datosAgua &lt;- read.csv("data/agua.csv", stringsAsFactors = F, encoding = "UTF-8")
 ```
 
 ---
@@ -123,15 +136,15 @@ Revisa la documentación de `nrow`, `ncol` y `dim` con el operador `?`.
 
 --
 
-```{r message=FALSE, warning=FALSE}
+
+```r
 #Cargamos tidyverse
 library(tidyverse)
 # Columnas que vamos a quitar
-columns2drop <- c("Geo.Point", "Geo.Shape", "nomgeo", "gid")
+columns2drop &lt;- c("Geo.Point", "Geo.Shape", "nomgeo", "gid")
 # Quitamos columnas
-datosAgua %>%
-  select(-one_of(columns2drop)) -> datosAgua
-  
+datosAgua %&gt;%
+  select(-one_of(columns2drop)) -&gt; datosAgua
 ```
 
 ---
@@ -140,7 +153,7 @@ datosAgua %>%
 
 * `select`: Selecciona una o más columnas. Esta función admite expresiones complejas. En nuestro caso le decimos con el símbolo de menos `-`, que sustraiga (retire) la lista de columnas especificadas.
 * Es una buena práctica usar `one_of`, por si escribimos mal alguna columna o le damos el nombre de una que no existe.
-* Con el operador `->` puedo "escupir" el resultado de una operación con `pipes` hacia un nuevo objeto.
+* Con el operador `-&gt;` puedo "escupir" el resultado de una operación con `pipes` hacia un nuevo objeto.
 
 ---
 
@@ -152,8 +165,9 @@ datosAgua %>%
 
 * `rename`: Renombra una o más columnas.
 
-```{r message=FALSE, warning=FALSE}
-datosAgua %>%
+
+```r
+datosAgua %&gt;%
   rename(
     indice_desarrollo = indice_des,
     consumo_mixto = consumo_total_mixto,
@@ -163,7 +177,7 @@ datosAgua %>%
     consumo_mixto_promedio = consumo_prom_mixto,
     consumo_domestico_promedio = consumo_prom_dom,
     consumo_comercial_promedio = consumo_prom_no_dom,
-  ) -> datosAgua
+  ) -&gt; datosAgua
 ```
 
 ---
@@ -174,17 +188,31 @@ datosAgua %>%
 
 --
 
-```{r message=FALSE, warning=FALSE}
+
+```r
 # Ver el nombre de las columnas
 colnames(datosAgua)
+```
+
+```
+##  [1] "consumo_mixto"              "anio"                      
+##  [3] "consumo_domestico_promedio" "consumo_domestico"         
+##  [5] "alcaldia"                   "colonia"                   
+##  [7] "consumo_mixto_promedio"     "consumo_total"             
+##  [9] "consumo_promedio"           "consumo_comercial_promedio"
+## [11] "bimestre"                   "consumo_comercial"         
+## [13] "indice_desarrollo"
+```
+
+```r
 # Nuevo orden
-newColOrder <- c("anio", "bimestre", "alcaldia", "colonia", "indice_desarrollo", 
+newColOrder &lt;- c("anio", "bimestre", "alcaldia", "colonia", "indice_desarrollo", 
                  "consumo_total", "consumo_domestico", "consumo_comercial", "consumo_mixto",
                  "consumo_promedio", "consumo_domestico_promedio", "consumo_comercial_promedio",
                  "consumo_mixto_promedio")
 # Reordenar
-datosAgua %>%
-  select(one_of(newColOrder)) -> datosAgua
+datosAgua %&gt;%
+  select(one_of(newColOrder)) -&gt; datosAgua
 ```
 
 ---
@@ -195,9 +223,10 @@ datosAgua %>%
 
 --
 
-```{r message=FALSE, warning=FALSE}
-datosAgua %>%
- mutate_at(vars(starts_with("consumo")), funs(litros = . * 1000)) -> datosAgua
+
+```r
+datosAgua %&gt;%
+ mutate_at(vars(starts_with("consumo")), funs(litros = . * 1000)) -&gt; datosAgua
 ```
 
 ---
@@ -220,9 +249,10 @@ datosAgua %>%
 
 --
 
-```{r message=FALSE, warning=FALSE}
-datosAgua %>%
- mutate_at( vars(c("alcaldia", "colonia", "indice_desarrollo")), funs(str_to_title(.) ) ) -> datosAgua
+
+```r
+datosAgua %&gt;%
+ mutate_at( vars(c("alcaldia", "colonia", "indice_desarrollo")), funs(str_to_title(.) ) ) -&gt; datosAgua
 ```
 
 ---
@@ -242,10 +272,11 @@ datosAgua %>%
 
 ## Exploración de los datos
 
-```{r message=FALSE, warning=FALSE}
-datosAgua %>%
-  group_by(alcaldia) %>%
-  summarise_at(vars(starts_with("consumo")), funs(sum)) -> datosAguaByAlcaldia
+
+```r
+datosAgua %&gt;%
+  group_by(alcaldia) %&gt;%
+  summarise_at(vars(starts_with("consumo")), funs(sum)) -&gt; datosAguaByAlcaldia
 ```
 
 ---
@@ -258,9 +289,10 @@ datosAgua %>%
 
 --
 
-```{r message=FALSE, warning=FALSE}
-datosAguaByAlcaldia %>%
-  select_if(~!all(is.na(.))) -> datosAguaByAlcaldia
+
+```r
+datosAguaByAlcaldia %&gt;%
+  select_if(~!all(is.na(.))) -&gt; datosAguaByAlcaldia
 ```
 
 ---
@@ -289,11 +321,14 @@ Con `ggplot`, intenta hacer un gráfico de barras con el consumo total por alcal
 
 ## Exploración de los datos
 
-```{r message=FALSE, warning=FALSE}
-datosAguaByAlcaldia %>%
+
+```r
+datosAguaByAlcaldia %&gt;%
   ggplot() + 
   geom_bar(aes(x = alcaldia, y = consumo_total), stat = "identity")
 ```
+
+![](U01_L004_files/figure-html/unnamed-chunk-10-1.svg)&lt;!-- --&gt;
 
 ---
 
@@ -303,11 +338,14 @@ datosAguaByAlcaldia %>%
 
 --
 
-```{r message=FALSE, warning=FALSE}
-datosAguaByAlcaldia %>%
+
+```r
+datosAguaByAlcaldia %&gt;%
   ggplot() + 
   geom_bar(aes(x = reorder(alcaldia, -consumo_total), y = consumo_total), stat = "identity")
 ```
+
+![](U01_L004_files/figure-html/unnamed-chunk-11-1.svg)&lt;!-- --&gt;
 
 ---
 
@@ -317,12 +355,15 @@ datosAguaByAlcaldia %>%
 
 --
 
-```{r message=FALSE, warning=FALSE}
-datosAguaByAlcaldia %>%
+
+```r
+datosAguaByAlcaldia %&gt;%
   ggplot() + 
   geom_bar(aes(x = reorder(alcaldia, consumo_total), y = consumo_total), stat = "identity") +
   coord_flip()
 ```
+
+![](U01_L004_files/figure-html/unnamed-chunk-12-1.svg)&lt;!-- --&gt;
 
 ## Exploración de los datos
 
@@ -330,8 +371,9 @@ datosAguaByAlcaldia %>%
 
 --
 
-```{r message=FALSE, warning=FALSE}
-datosAguaByAlcaldia %>%
+
+```r
+datosAguaByAlcaldia %&gt;%
   ggplot() + 
   geom_bar(aes(x = reorder(alcaldia, consumo_total), y = consumo_total/1000), stat = "identity",
            colour = "#51A8C1", fill = "#51A8C1", alpha = 0.5) +
@@ -344,6 +386,8 @@ datosAguaByAlcaldia %>%
 
   theme_minimal()
 ```
+
+![](U01_L004_files/figure-html/unnamed-chunk-13-1.svg)&lt;!-- --&gt;
 
 ---
 
@@ -359,10 +403,11 @@ Crea una versión de `datosAgua` agrupado por alcaldía y colonia en `datosAguaB
 
 ## Exploración de datos
 
-```{r message=FALSE, warning=FALSE}
-datosAgua %>%
-  group_by(alcaldia, colonia) %>%
-  summarise_all(funs(mean(., na.rm = T))) -> datosAguaByColonia
+
+```r
+datosAgua %&gt;%
+  group_by(alcaldia, colonia) %&gt;%
+  summarise_all(funs(mean(., na.rm = T))) -&gt; datosAguaByColonia
 ```
 
 ---
@@ -373,12 +418,15 @@ datosAgua %>%
 
 --
 
-```{r message=FALSE, warning=FALSE}
-datosAguaByColonia %>%
+
+```r
+datosAguaByColonia %&gt;%
   ggplot() + 
   geom_boxplot(aes(x = reorder(alcaldia, consumo_total), y = consumo_total), ) +
   coord_flip()
 ```
+
+![](U01_L004_files/figure-html/unnamed-chunk-15-1.svg)&lt;!-- --&gt;
 
 ---
 
@@ -388,8 +436,9 @@ datosAguaByColonia %>%
 
 --
 
-```{r message=FALSE, warning=FALSE}
-datosAguaByColonia %>%
+
+```r
+datosAguaByColonia %&gt;%
   ggplot() + 
   geom_boxplot(aes(x = reorder(alcaldia, consumo_total), y = consumo_total/1000), 
                colour = "#51A8C1", fill = "#51A8C1", alpha = 0.5) +
@@ -401,3 +450,111 @@ datosAguaByColonia %>%
        x = "Agua consumida") + 
   theme_minimal()
 ```
+
+![](U01_L004_files/figure-html/unnamed-chunk-16-1.svg)&lt;!-- --&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "solarized-dark",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
