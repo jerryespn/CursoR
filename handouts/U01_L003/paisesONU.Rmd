@@ -24,7 +24,7 @@ En este primer ejercicio, con el pretexto de analizar el registro histórico de 
 Instalar y cargar paquetería `tidyverse`
 
 ```{r install_load}
-install.packages("tidyverse")
+# install.packages("tidyverse")
 library(tidyverse)
 ```
 
@@ -32,18 +32,21 @@ Instalar y cargar paquete con datos de los votos en el Consejo General de las Na
 
 ```{r load_unvotes}
 #Código para cargar e instalar el paquete unvotes
+# install.packages("unvotes")
+library(unvotes)
 ```
 
 Instalar y cargar paquete para manipular fechas `lubridate`.
 
 ```{r load_lubridate}
 #Código para cargar e instalar el paquete lubridate
+# install.packages("lubridate")
+library(lubridate)
 ```
 
 # Nuestro primer gráfico
 
 Juntamos las distintas bases de datos que vienen en el paquete `unvotes`: `un_vote`, `un_roll_calls`, `un_roll_call_issues`
-
 
 ```{r}
 un_votes_complete <- un_votes %>%
@@ -77,14 +80,26 @@ un_votes_complete %>%
 
 ```{r}
 # Filtrar todos los votos sobre Human rights
-
+un_votes_complete_1 <- un_votes_complete %>%
+  filter(short_name == "hr")
 # Filtrar todos los votos después de la disolución de la unión soviética (Tratado de Belovezha)
-
+un_votes_complete_2 <- un_votes_complete %>%
+  filter(date > "1991-12-08")
 # Filtrar todos los votos importantes para el departamento de estado
+un_votes_complete_3 <- un_votes_complete %>%
+  filter(importantvote == 1)
 ```
 
 # Agrupar
 
 ```{r}
-# Agrupa en las tres versiones que creaste arriba por país, año e issue
+# Agrupa en las tres versiones que creaste arriba por país, sesión e issue
+un_votes_complete_1 %>%
+  group_by(country, session, issue) -> un_votes_complete_1
+
+un_votes_complete_2 %>%
+  group_by(country, session, issue) -> un_votes_complete_2
+
+un_votes_complete_3 %>%
+  group_by(country, session, issue) -> un_votes_complete_3
 ```
