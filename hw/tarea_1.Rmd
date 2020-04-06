@@ -1,0 +1,20 @@
+---
+title: "Tarea I"
+author: "Pablo Reyes Moctezuma"
+date: "2/4/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Esta es la primera tarea con la que trabajeremos en el curso. Usaremos R Markdown para las tareas. Esto te permitirá hacer anotaciones y trabajar con código de R al mismo tiempo (además que me será más fácil revisarlas).
+
+Esta tarea va a ser cortita; sólo vamos a ejercitar el uso de funciones básicas para instalar paquetes, así como  para explorar y conocer nuestros datos. En esta ocasión vamos a trabajar con datos publicados por la OCDE.
+
+# Instalar paquete
+
+Vamos a usar el paquete `OECD`. Este es un paquete con datos publicados por la OCDE y que está registrado en la CRAN (*The Comprehensive R Archive Network*). La CRAN es una red de servidores y computadoras al rededor del mundo que almacenan paquetes de R creados por la comunidad y que ya fueron revisados por voluntarios de la fundación R (Dato curioso: en México, sólo el ITAM y una universidad en Tlaxcala forman parte de la CRAN). Cuando usamos el comando `install.packages`, R se conecta con la CRAN, busca el nombre del paquete en un índice y descarga el contenido (como hemos hecho para instalar `tidyverse`, `unvotes`, `lubridate`, etc.).
+
+
