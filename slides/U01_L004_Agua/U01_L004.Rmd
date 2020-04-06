@@ -1,0 +1,37 @@
+---
+title: "Exploración y limpieza de datos con dplyr"
+author: ""
+date: "6 de abril de 2020"
+output:
+  xaringan::moon_reader:
+    seal: False
+    css: ["../mainStyle.css", "../vendor/fontawesome/css/all.css", "L02.css", "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"]
+    lib_dir: libs
+    nature:
+      ratio: '16:9'
+      highlightStyle: solarized-dark
+      countIncrementalSlides: false
+---
+
+```{r child = "../setup.Rmd"}
+```
+
+class: inverse, center, middle, title-slide, animated, slideInDown
+
+# L04: Exploración y limpieza de datos <br> `r paste(emo::ji('wrench'))`
+
+.subtitle[¿Qué colonias consumen más agua en la CDMX?]
+
+### 6 de abril de 2020
+
+---
+class: center, middle
+
+## Descarguemos los datos
+
+---
+
+## Poner orden
+
+* Es una buena práctica crear una nueva carpeta cuando empezamos a trabajar en un nuevo proyecto.
+* Crar una carpeta para los datos con el nombre `data`
