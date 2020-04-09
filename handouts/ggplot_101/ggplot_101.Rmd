@@ -1,0 +1,25 @@
+---
+title: "Introducción a ggplot2"
+author: "Pablo Reyes Moctezuma"
+date: "8/4/2020"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## ¿Qué es `ggplot2`?
+
+`ggplot2` es un **paquete para generar gráficos en R**; pertenece a `tidyverse`, una familia de paquetes orientados a facilitar el análisis de datos en R.
+
+### ¿Qué tiene de especial `ggplot2`?
+
+`ggplot2` no es el único paquete que hay para generar gráficos en R. De hecho, ni siquiera viene incluido por defecto en R, es decir, el usuario tiene que instalarlo por medio de `install.packages` (`graphics` es el paquete predeterminado para generar gráficos en R, por si andaban con el pendiente).
+
+Entonces, ¿cuál es todo el lío al rededor de este paquete? `ggplot2` es la implementación en R de un libro escrito por Leland Wilkinson cuyo título es _The Grammar of Graphics_ (1999). El argumento principal de Wilkinson es que, como en cualquier otra ciencia o disciplina, aquellos que se dedican a hacer y estudiar gráficos necesitan un lenguaje para nombrar, describir y comunicar su objeto de estudio. Así, Wilkinson introdujo todo **un vocabulario y reglas (una gramatica) que permiten describir sistematicamente un gráfico**. Además, Wilkinson retomó algunas ideas de lo último que se discutía en las facultades de Ciencia de la Computación y **propuso que el proceso ideal para crear un gráfico es, simplemente, describiendo el resultado final**.
+
+`ggplot2` permite usar en R el sistema que planteó Wilkinson en _The Grammar of Graphics_. Esto facilita enormemente la generación de gráficos para visualizar datos. En consecuencia, podemos recurrir más fácil y frecuentemente a esta herramienta para **explorar nuestros datos y comunicar nuestros hallazgos**. En comparación con otros paquetes e, incluso, con otros idiomas de programación, `ggplot2` hace un mejor trabajo en muy poquitas líneas de código. 
